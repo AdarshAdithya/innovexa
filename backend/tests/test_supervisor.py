@@ -143,7 +143,7 @@ def test_injected_evidence_note_cannot_force_eligibility():
 
 def test_summary_and_query_intents():
     s = client.get("/summary").json()
-    assert s["patients"] == 120 and s["trials"] >= 4 and s["implausible"] >= 1
+    assert s["patients"] == 127 and s["trials"] >= 4 and s["implausible"] >= 1
     a = client.post("/query", json={"question": "Why is P042 in review?"}).json()
     assert "T3-CKD needs review" in a["answer"]
     a = client.post("/query", json={"question": "Which criteria are most frequently failing?"}).json()

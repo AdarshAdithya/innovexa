@@ -261,9 +261,9 @@ export default function Dashboard({ s }: { s: Shared }) {
                 <XAxis dataKey="trial" tick={{ fontSize: 11, fill: "#5b6f8c" }} axisLine={false} tickLine={false} />
                 <YAxis tick={{ fontSize: 11, fill: "#94a3b8" }} axisLine={false} tickLine={false} allowDecimals={false} />
                 <Tooltip cursor={{ fill: "#eef4fe" }} contentStyle={{ borderRadius: 12, border: "1px solid #e2eaf5", fontSize: 12 }} />
-                <Bar dataKey="Eligible" stackId="a" fill={DECISION_META.ELIGIBLE.hex} />
-                <Bar dataKey="Needs review" stackId="a" fill={DECISION_META.NEEDS_REVIEW.hex} />
-                <Bar dataKey="Not eligible" stackId="a" fill="#fda4af" radius={[8, 8, 0, 0]} />
+                <Bar isAnimationActive={false} dataKey="Eligible" stackId="a" fill={DECISION_META.ELIGIBLE.hex} />
+                <Bar isAnimationActive={false} dataKey="Needs review" stackId="a" fill={DECISION_META.NEEDS_REVIEW.hex} />
+                <Bar isAnimationActive={false} dataKey="Not eligible" stackId="a" fill="#fda4af" radius={[8, 8, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>

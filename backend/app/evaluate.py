@@ -13,6 +13,20 @@ from .security import GUARD, untrusted
 CLASSES = ["ELIGIBLE", "NOT_ELIGIBLE", "NEEDS_REVIEW"]
 
 
+SEVERITIES = ["safe", "missed_eligible", "unsafe", "overconfident"]
+
+
+def severity(expected: str, predicted: str) -> str:
+    """How bad a mismatch is for patients, not just for the score."""
+    if predicted == "NEEDS_REVIEW":
+        return "safe"
+    if predicted == "ELIGIBLE":
+        return "unsafe"
+    if expected == "ELIGIBLE":
+        return "missed_eligible"
+    return "overconfident"
+
+
 def load_labels() -> dict[tuple[str, str], dict]:
     data = json.loads((config.DATA_DIR / "labels.json").read_text())
     return {(d["patient_id"], d["trial_id"]): d for d in data}
@@ -51,7 +65,7 @@ def run(refresh: bool = False, with_baseline: bool = False) -> dict:
     trials = {t.id: t for t in db.benchmark_trials()}
     patients = {p.id: p for p in db.benchmark_patients()}
     flags = anomaly_flags(list(patients.values()))
-    pairs, relevant, mismatches, judged, per_trial = [], [], [], [], {}
+    pairs, relevant, core, hard, mismatches, judged, per_trial = [], [], [], [], [], [], {}
     for tid, trial in trials.items():
         rules, _ = parse_criteria(trial)
         for pid, patient in patients.items():
@@ -66,13 +80,18 @@ def run(refresh: bool = False, with_baseline: bool = False) -> dict:
             if lab.get("relevant"):
                 relevant.append((exp, got))
             per_trial.setdefault(tid, []).append((exp, got))
+            (hard if lab.get("hard_case") else core).append((exp, got))
             if exp != got:
                 mismatches.append({"patient_id": pid, "trial_id": tid, "expected": exp, "predicted": got,
+                                   "severity": severity(exp, got), "hard_case": bool(lab.get("hard_case")),
                                    "label_comment": lab["comment"], "rationale": v.rationale})
     out = score(pairs)
     out["per_trial"] = {tid: {"accuracy": score(p)["accuracy"], "n": len(p)} for tid, p in per_trial.items()}
     out["relevant"] = {**score(relevant), "description": "pairs where the patient has the trial's target condition"}
+    out["core"] = {**score(core), "description": "main benchmark (hand-written, demo and seeded patients)"}
+    out["stress"] = {**score(hard), "description": "hard-case stress set: phrasings the offline reader does not handle"}
     out["mismatches"] = mismatches
+    out["failure_summary"] = {k: sum(m["severity"] == k for m in mismatches) for k in SEVERITIES}
     out["judge"] = {"avg_clarity": round(sum(j["score"] for j in judged) / len(judged), 2) if judged else None,
                     "n": len(judged), "mode": judged[0]["judge"] if judged else None,
                     "distribution": {s: sum(j["score"] == s for j in judged) for s in range(1, 6)},

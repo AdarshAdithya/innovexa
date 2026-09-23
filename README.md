@@ -33,7 +33,7 @@ cd backend
 python -m venv ../.venv && source ../.venv/bin/activate      # Windows: ..\.venv\Scripts\activate
 pip install -r requirements.txt
 cp .env.example .env            # optional: LLM_BASE_URL / LLM_MODEL / LLM_API_KEY for the event model
-python data/generate.py         # 4 trials, 120 patients, 480 labels (already committed)
+python data/generate.py         # 4 trials, 127 patients, 508 labels (already committed)
 uvicorn app.main:app --reload   # http://localhost:8000, docs at /docs
 pytest -q                       # 73 tests
 
@@ -196,7 +196,7 @@ text criteria, notes, explanations) is where models help.
 ## Synthetic data and evaluation
 
 `backend/data/generate.py` (seed 42) writes 4 trials (type 2 diabetes, hypertension, CKD, HER2+
-breast cancer) and **120 patients**:
+breast cancer) and **127 patients**:
 - **P001–P030:** hand-written edge cases.
 - **P040–P043:** guaranteed demo patients.
 - **The rest:** a seeded cohort with random edge cases:
@@ -209,26 +209,42 @@ breast cancer) and **120 patients**:
   - implausible values
   - nested "(T2D or HTN)"
 
-**Labels:** 480 labels are computed from each patient's *true* state by ground-truth functions that
+**Labels:** 508 labels are computed from each patient's *true* state by ground-truth functions that
 share no code with the parser or rule engine. `/metrics` evaluates on these frozen files, so demo
 edits cannot move the score.
 
-**Measured (offline mode, this commit):**
+**Measured (offline mode, this commit):** 127 patients × 4 trials = 508 labelled pairs.
 
-| Set | Pairs | Accuracy | F1 (eligible) | Macro F1 |
+| Set | Pairs | Accuracy |
+|---|---|---|
+| All labelled pairs | 508 | 98.8 % (502/508) |
+| Core benchmark (P001–P120) | 480 | 100 % |
+| Condition-relevant pairs | 150 | 96.0 % |
+| **Hard-case stress set (P121–P127)** | 28 | **78.6 % (22/28)** |
+
+The stress set is 7 synthetic patients written in realistic phrasings the offline reader does not handle.
+Their labels come from the same independent ground truth, so the 6 misses are real, measured failures:
+
+| Patient | Trial | Expected → predicted | Severity | Root cause |
 |---|---|---|---|---|
-| All labelled pairs | 480 (27 ELIGIBLE / 439 NOT_ELIGIBLE / 14 NEEDS_REVIEW) | 100 % | 100 % | 100 % |
-| Condition-relevant pairs | 143 | 100 % | 100 % | 100 % |
+| P121 | T1 | ELIGIBLE → NEEDS_REVIEW | safe | interval in words ("two years ago") |
+| P122 | T1 | ELIGIBLE → NEEDS_REVIEW | safe | negation after the term ("MI was ruled out") |
+| P125 | T1 | NOT_ELIGIBLE → NEEDS_REVIEW | safe | shorthand ("s/p STEMI 3 mo ago") |
+| P124 | T2 | ELIGIBLE → NEEDS_REVIEW | safe | unsupported unit (BP in kPa) |
+| P123 | T1 | ELIGIBLE → NOT_ELIGIBLE | missed eligible | synonym gap ("Diabetes mellitus type II") |
+| P127 | T1 | NOT_ELIGIBLE → ELIGIBLE | **unsafe** | pregnancy phrased as "expecting a baby" |
+
+P126 ("heart attack last spring") is correctly sent to review because the timing is vague.
+
+**Takeaway for the jury:** 4 of 6 failures fail safe, landing in the human review queue because the rule engine
+never guesses. The remaining two show exactly where the LLM note reader and synonym expansion are needed. We kept
+these failures in the benchmark instead of tuning them away.
 
 Read this critically:
-- **The label mix is imbalanced.** Most pairs are NOT_ELIGIBLE because the patient lacks the trial's
-  condition, hence the separate condition-relevant row.
-- **The offline parser and note reader were written for these protocol and note phrasings**, and the
-  generator uses the same phrasings. So this measures correctness of the logic, not language
-  generalisation.
-- **The real test is still to run:** connect the event model, upload an unseen protocol, and use the
-  *Compare with pure-LLM baseline* button for the hybrid vs pure-LLM comparison. It needs a model and
-  was not run here.
+- **The core score measures the logic, not language generalisation.** The offline parser, note reader and
+  generator all use the same phrasings.
+- **The real test is still to run:** connect the event model, re-run the stress set, and use *Compare with
+  pure-LLM baseline*.
 
 ## Tests (73)
 

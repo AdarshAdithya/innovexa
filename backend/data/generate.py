@@ -1,7 +1,8 @@
-"""Synthetic data generator: 4 trials, 120 patients, 480 labeled patient-trial pairs.
+"""Synthetic data generator: 4 trials, 127 patients, 508 labeled patient-trial pairs.
 
 30 hand-written edge-case patients (P001-P030), 4 guaranteed demo patients (P040-P043) and a seeded
-random cohort for the rest.
+random cohort for the rest, plus a 7-patient hard-case stress set (P121-P127) written in phrasings
+the offline reader does not handle.
 
 Labels are computed from each patient's *true* clinical state by the functions at the bottom
 of this file, which share no code with the app's parser or rule engine. That keeps the
@@ -389,6 +390,48 @@ def gen_patient(pid: str, rng: random.Random) -> dict:
                 why="Generated: " + (", ".join(why) if why else "no special edge case") + ".")
 
 
+# Hard-case stress set: realistic phrasings the offline note reader and synonym tables do NOT handle.
+# Their labels come from the same independent ground truth, so any miss is a real, measured failure.
+HARD_CASES = [
+    dict(id="P121", age=59, sex="M", conditions=["Type 2 diabetes mellitus"], medications=["Metformin"],
+         labs=dict(hba1c=8.2, egfr=81, bmi=29.0, systolic_bp=130, fasting_glucose=162, weight=87),
+         pregnant=False, notes="Myocardial infarction two years ago, stable since.",
+         truth=dict(mi_recent=False), hard=True,
+         why="HARD: interval written in words ('two years ago'); MI is outside the 6-month window."),
+    dict(id="P122", age=63, sex="F", conditions=["Type 2 diabetes mellitus"], medications=["Metformin"],
+         labs=dict(hba1c=7.7, egfr=74, bmi=31.2, systolic_bp=128, fasting_glucose=150, weight=80),
+         pregnant=False, notes="Myocardial infarction was ruled out on admission; troponin negative.",
+         truth=dict(mi_recent=False), hard=True,
+         why="HARD: negation after the term ('MI was ruled out'); the patient never had an MI."),
+    dict(id="P123", age=51, sex="M", conditions=["Diabetes mellitus type II"], medications=["Metformin"],
+         labs=dict(hba1c=8.6, egfr=90, bmi=28.1, systolic_bp=126, fasting_glucose=170, weight=84),
+         pregnant=False, notes="No history of myocardial infarction or stroke.",
+         truth=dict(mi_recent=False, true_conditions=["type 2 diabetes"]), hard=True,
+         why="HARD: diagnosis written as 'Diabetes mellitus type II', a synonym missing from the offline table."),
+    dict(id="P124", age=58, sex="M", conditions=["Hypertension"], medications=["Losartan"],
+         labs=dict(hba1c=5.6, egfr=80, bmi=27.4, systolic_bp={"value": 21.3, "unit": "kPa"}, fasting_glucose=95,
+                   weight=85),
+         pregnant=False, notes="Blood pressure recorded by the device in kPa.",
+         truth=dict(), hard=True,
+         why="HARD: systolic BP in kPa (21.3 kPa = 160 mmHg), a unit the rule engine cannot convert."),
+    dict(id="P125", age=67, sex="M", conditions=["Type 2 diabetes mellitus"], medications=["Metformin"],
+         labs=dict(hba1c=8.9, egfr=70, bmi=30.4, systolic_bp=134, fasting_glucose=181, weight=91),
+         pregnant=False, notes="s/p STEMI 3 mo ago, stented.",
+         truth=dict(mi_recent=True), hard=True,
+         why="HARD: clinical shorthand ('s/p STEMI 3 mo ago'); a recent MI that excludes the patient."),
+    dict(id="P126", age=46, sex="F", conditions=["Type 2 diabetes mellitus"], medications=["Metformin"],
+         labs=dict(hba1c=7.4, egfr=99, bmi=27.9, systolic_bp=118, fasting_glucose=140, weight=70),
+         pregnant=False, notes="Heart attack last spring, recovered well.",
+         truth=dict(mi_recent=None), hard=True,
+         why="HARD: vague timing ('last spring') cannot be placed against the 6-month window; needs a human."),
+    dict(id="P127", age=31, sex="F", conditions=["Type 2 diabetes mellitus"], medications=["Metformin"],
+         labs=dict(hba1c=7.9, egfr=112, bmi=30.0, systolic_bp=116, fasting_glucose=158, weight=78),
+         pregnant=False, notes="Expecting a baby in March. No history of MI or stroke.",
+         truth=dict(mi_recent=False, true_pregnant=True), hard=True,
+         why="HARD: pregnancy written as 'expecting a baby' while the structured field says not pregnant."),
+]
+
+
 def build_cohort(n_total: int = 120) -> list[dict]:
     rng = random.Random(SEED)
     fixed = {p["id"]: p for p in PATIENTS + DEMO_PATIENTS}
@@ -396,7 +439,7 @@ def build_cohort(n_total: int = 120) -> list[dict]:
     for i in range(1, n_total + 1):
         pid = f"P{i:03d}"
         out.append(fixed[pid] if pid in fixed else gen_patient(pid, rng))
-    return out
+    return out + HARD_CASES
 
 
 # ---------------------------------------------------------------- ground truth (labeler only)
@@ -415,6 +458,8 @@ def _canon(p, lab):
             return v["value"] * 0.45359237
         if v["unit"] == "mmol/mol":
             return 0.09148 * v["value"] + 2.152
+        if v["unit"] == "kPa":
+            return v["value"] * 7.50062
         return v["value"]
     return v
 
@@ -427,7 +472,7 @@ def _lab(p, lab):
 
 
 def _has(p, *names):
-    joined = " | ".join(c.lower() for c in p["conditions"])
+    joined = " | ".join([c.lower() for c in p["conditions"]] + p["truth"].get("true_conditions", []))
     return any(n in joined for n in names)
 
 
@@ -440,6 +485,8 @@ def _between(v, lo, hi):
 
 
 def _pregnant(p):
+    if "true_pregnant" in p["truth"]:
+        return p["truth"]["true_pregnant"]
     if p["truth"].get("pregnancy_conflict"):
         return None
     return p["pregnant"] if p["sex"] == "F" else False
@@ -507,6 +554,7 @@ def main():
             inc, exc = fn(p)
             decision = decide(inc, exc)
             labels.append({"patient_id": p["id"], "trial_id": tid, "expected": decision, "relevant": _relevant(p, tid),
+                           "hard_case": bool(p.get("hard")),
                            "comment": p["why"] if _relevant(p, tid) else "No qualifying diagnosis or demographic mismatch."})
     (OUT / "trials.json").write_text(json.dumps(TRIALS, indent=2))
     (OUT / "patients.json").write_text(json.dumps(patients, indent=2))

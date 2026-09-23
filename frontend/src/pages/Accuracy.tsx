@@ -4,6 +4,12 @@ import { api, type Metrics } from "../api";
 import { Button, Card, ErrorBox, Icon, LoadingPanel, PageHeader, Ring, Spinner } from "../components/ui";
 
 const pct = (v: number | null | undefined) => (v === null || v === undefined ? "—" : `${(v * 100).toFixed(1)}%`);
+const SEV: Record<string, { label: string; cls: string }> = {
+  safe: { label: "safe (sent to human review)", cls: "bg-amber-50 text-amber-900 ring-amber-200" },
+  missed_eligible: { label: "missed eligible patient", cls: "bg-sky-50 text-sky-900 ring-sky-200" },
+  unsafe: { label: "unsafe (false eligible)", cls: "bg-rose-50 text-rose-900 ring-rose-200" },
+  overconfident: { label: "overconfident exclusion", cls: "bg-slate-100 text-slate-800 ring-slate-200" },
+};
 const NICE: Record<string, string> = { ELIGIBLE: "Eligible", NOT_ELIGIBLE: "Not eligible", NEEDS_REVIEW: "Needs review" };
 
 function Metric({ label, value, hint, ring, color = "#1f6fe0", delay = 0 }: { label: string; value: string; hint: string; ring?: number | null; color?: string; delay?: number }) {
@@ -255,7 +261,7 @@ export default function Accuracy() {
                 <XAxis dataKey="trial" tick={{ fontSize: 11, fill: "#5b6f8c" }} axisLine={false} tickLine={false} />
                 <YAxis domain={[0, 100]} tick={{ fontSize: 11, fill: "#94a3b8" }} unit="%" axisLine={false} tickLine={false} />
                 <Tooltip cursor={{ fill: "#eef4fe" }} contentStyle={{ borderRadius: 12, border: "1px solid #e2eaf5", fontSize: 12 }} />
-                <Bar dataKey="accuracy" fill="url(#acc-bar)" radius={[10, 10, 4, 4]} animationDuration={900} />
+                <Bar dataKey="accuracy" fill="url(#acc-bar)" radius={[10, 10, 4, 4]} isAnimationActive={false} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -270,7 +276,47 @@ export default function Accuracy() {
         </Card>
       </div>
 
+      {m.core && m.stress && (
+        <div className="grid gap-4 md:grid-cols-2">
+          <Card title="Core benchmark" subtitle={m.core.description}>
+            <div className="flex items-center gap-4">
+              <Ring value={m.core.accuracy} size={64} stroke={7} color="#10b981">
+                <Icon name="check" className="h-4 w-4 text-emerald-500" strokeWidth={2.6} />
+              </Ring>
+              <div>
+                <p className="font-display text-3xl font-extrabold text-emerald-600 tabular-nums">{pct(m.core.accuracy)}</p>
+                <p className="text-xs text-slate-500">
+                  {m.core.correct}/{m.core.n} pairs
+                </p>
+              </div>
+            </div>
+          </Card>
+          <Card title="Hard-case stress set" subtitle={m.stress.description}>
+            <div className="flex items-center gap-4">
+              <Ring value={m.stress.accuracy} size={64} stroke={7} color="#f59e0b">
+                <Icon name="flask" className="h-4 w-4 text-amber-500" />
+              </Ring>
+              <div>
+                <p className="font-display text-3xl font-extrabold text-amber-600 tabular-nums">{pct(m.stress.accuracy)}</p>
+                <p className="text-xs text-slate-500">
+                  {m.stress.correct}/{m.stress.n} pairs
+                </p>
+              </div>
+            </div>
+          </Card>
+        </div>
+      )}
+
       <Card title={`Mismatches (${m.mismatches.length})`} subtitle="Pairs where the prediction differs from the label.">
+        {m.failure_summary && m.mismatches.length > 0 && (
+          <div className="mb-3 flex flex-wrap gap-2 text-xs">
+            {Object.entries(m.failure_summary).map(([k, v]) => (
+              <span key={k} className={`rounded-full px-2.5 py-0.5 font-semibold ring-1 ${SEV[k]?.cls ?? "bg-slate-100 ring-slate-200"}`}>
+                {v} {SEV[k]?.label ?? k}
+              </span>
+            ))}
+          </div>
+        )}
         {m.mismatches.length === 0 ? (
           <p className="flex items-center gap-2 text-sm text-emerald-700">
             <Icon name="check" className="h-4 w-4" /> No mismatches against the labeled set.
@@ -284,7 +330,8 @@ export default function Accuracy() {
                   <th>Trial</th>
                   <th>Expected</th>
                   <th>Predicted</th>
-                  <th>Label note</th>
+                  <th>Severity</th>
+                  <th>Root cause (label note)</th>
                 </tr>
               </thead>
               <tbody>
@@ -294,6 +341,11 @@ export default function Accuracy() {
                     <td className="font-mono text-xs">{x.trial_id}</td>
                     <td className="text-xs">{x.expected}</td>
                     <td className="text-xs font-semibold text-rose-700">{x.predicted}</td>
+                    <td>
+                      <span className={`rounded-full px-2 py-0.5 text-[11px] font-semibold whitespace-nowrap ring-1 ${SEV[x.severity]?.cls ?? "ring-transparent"}`}>
+                        {SEV[x.severity]?.label ?? x.severity}
+                      </span>
+                    </td>
                     <td className="text-xs text-slate-600">{x.label_comment}</td>
                   </tr>
                 ))}
