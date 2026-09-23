@@ -2651,5 +2651,155 @@
     },
     "pregnant": false,
     "notes": "Adherent to current medication."
+  },
+  {
+    "id": "P121",
+    "age": 59,
+    "sex": "M",
+    "conditions": [
+      "Type 2 diabetes mellitus"
+    ],
+    "medications": [
+      "Metformin"
+    ],
+    "labs": {
+      "hba1c": 8.2,
+      "egfr": 81,
+      "bmi": 29.0,
+      "systolic_bp": 130,
+      "fasting_glucose": 162,
+      "weight": 87
+    },
+    "pregnant": false,
+    "notes": "Myocardial infarction two years ago, stable since."
+  },
+  {
+    "id": "P122",
+    "age": 63,
+    "sex": "F",
+    "conditions": [
+      "Type 2 diabetes mellitus"
+    ],
+    "medications": [
+      "Metformin"
+    ],
+    "labs": {
+      "hba1c": 7.7,
+      "egfr": 74,
+      "bmi": 31.2,
+      "systolic_bp": 128,
+      "fasting_glucose": 150,
+      "weight": 80
+    },
+    "pregnant": false,
+    "notes": "Myocardial infarction was ruled out on admission; troponin negative."
+  },
+  {
+    "id": "P123",
+    "age": 51,
+    "sex": "M",
+    "conditions": [
+      "Diabetes mellitus type II"
+    ],
+    "medications": [
+      "Metformin"
+    ],
+    "labs": {
+      "hba1c": 8.6,
+      "egfr": 90,
+      "bmi": 28.1,
+      "systolic_bp": 126,
+      "fasting_glucose": 170,
+      "weight": 84
+    },
+    "pregnant": false,
+    "notes": "No history of myocardial infarction or stroke."
+  },
+  {
+    "id": "P124",
+    "age": 58,
+    "sex": "M",
+    "conditions": [
+      "Hypertension"
+    ],
+    "medications": [
+      "Losartan"
+    ],
+    "labs": {
+      "hba1c": 5.6,
+      "egfr": 80,
+      "bmi": 27.4,
+      "systolic_bp": {
+        "value": 21.3,
+        "unit": "kPa"
+      },
+      "fasting_glucose": 95,
+      "weight": 85
+    },
+    "pregnant": false,
+    "notes": "Blood pressure recorded by the device in kPa."
+  },
+  {
+    "id": "P125",
+    "age": 67,
+    "sex": "M",
+    "conditions": [
+      "Type 2 diabetes mellitus"
+    ],
+    "medications": [
+      "Metformin"
+    ],
+    "labs": {
+      "hba1c": 8.9,
+      "egfr": 70,
+      "bmi": 30.4,
+      "systolic_bp": 134,
+      "fasting_glucose": 181,
+      "weight": 91
+    },
+    "pregnant": false,
+    "notes": "s/p STEMI 3 mo ago, stented."
+  },
+  {
+    "id": "P126",
+    "age": 46,
+    "sex": "F",
+    "conditions": [
+      "Type 2 diabetes mellitus"
+    ],
+    "medications": [
+      "Metformin"
+    ],
+    "labs": {
+      "hba1c": 7.4,
+      "egfr": 99,
+      "bmi": 27.9,
+      "systolic_bp": 118,
+      "fasting_glucose": 140,
+      "weight": 70
+    },
+    "pregnant": false,
+    "notes": "Heart attack last spring, recovered well."
+  },
+  {
+    "id": "P127",
+    "age": 31,
+    "sex": "F",
+    "conditions": [
+      "Type 2 diabetes mellitus"
+    ],
+    "medications": [
+      "Metformin"
+    ],
+    "labs": {
+      "hba1c": 7.9,
+      "egfr": 112,
+      "bmi": 30.0,
+      "systolic_bp": 116,
+      "fasting_glucose": 158,
+      "weight": 78
+    },
+    "pregnant": false,
+    "notes": "Expecting a baby in March. No history of MI or stroke."
   }
 ]

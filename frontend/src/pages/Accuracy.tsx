@@ -4,6 +4,12 @@ import { api, type Metrics } from "../api";
 import { Button, Card, ErrorBox, Spinner } from "../components/ui";
 
 const pct = (v: number | null | undefined) => (v === null || v === undefined ? "—" : `${(v * 100).toFixed(1)}%`);
+const SEV: Record<string, { label: string; cls: string }> = {
+  safe: { label: "safe (sent to human review)", cls: "bg-amber-100 text-amber-900" },
+  missed_eligible: { label: "missed eligible patient", cls: "bg-sky-100 text-sky-900" },
+  unsafe: { label: "unsafe (false eligible)", cls: "bg-rose-100 text-rose-900" },
+  overconfident: { label: "overconfident exclusion", cls: "bg-slate-200 text-slate-800" },
+};
 const NICE: Record<string, string> = { ELIGIBLE: "Eligible", NOT_ELIGIBLE: "Not eligible", NEEDS_REVIEW: "Needs review" };
 
 export default function Accuracy() {
@@ -192,7 +198,33 @@ export default function Accuracy() {
         </Card>
       </div>
 
+      {m.core && m.stress && (
+        <div className="grid gap-4 md:grid-cols-2">
+          <Card title="Core benchmark">
+            <p className="text-3xl font-bold tabular-nums text-emerald-600">{pct(m.core.accuracy)}</p>
+            <p className="text-xs text-slate-500">
+              {m.core.correct}/{m.core.n} pairs · {m.core.description}
+            </p>
+          </Card>
+          <Card title="Hard-case stress set">
+            <p className="text-3xl font-bold tabular-nums text-amber-600">{pct(m.stress.accuracy)}</p>
+            <p className="text-xs text-slate-500">
+              {m.stress.correct}/{m.stress.n} pairs · {m.stress.description}
+            </p>
+          </Card>
+        </div>
+      )}
+
       <Card title={`Mismatches (${m.mismatches.length})`}>
+        {m.failure_summary && m.mismatches.length > 0 && (
+          <div className="mb-3 flex flex-wrap gap-2 text-xs">
+            {Object.entries(m.failure_summary).map(([k, v]) => (
+              <span key={k} className={`rounded-full px-2 py-0.5 font-semibold ${SEV[k]?.cls ?? "bg-slate-100"}`}>
+                {v} {SEV[k]?.label ?? k}
+              </span>
+            ))}
+          </div>
+        )}
         {m.mismatches.length === 0 ? (
           <p className="text-sm text-slate-500">No mismatches against the labeled set.</p>
         ) : (
@@ -203,7 +235,8 @@ export default function Accuracy() {
                 <th>Trial</th>
                 <th>Expected</th>
                 <th>Predicted</th>
-                <th>Label note</th>
+                <th>Severity</th>
+                <th>Root cause (label note)</th>
               </tr>
             </thead>
             <tbody>
@@ -213,6 +246,11 @@ export default function Accuracy() {
                   <td>{x.trial_id}</td>
                   <td>{x.expected}</td>
                   <td className="text-rose-700">{x.predicted}</td>
+                  <td>
+                    <span className={`rounded px-1.5 py-0.5 text-[11px] font-semibold ${SEV[x.severity]?.cls ?? ""}`}>
+                      {SEV[x.severity]?.label ?? x.severity}
+                    </span>
+                  </td>
                   <td className="text-xs text-slate-600">{x.label_comment}</td>
                 </tr>
               ))}

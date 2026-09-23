@@ -194,7 +194,10 @@ export interface Metrics {
   confusion_matrix: number[][];
   per_class: Record<Decision, { precision: number | null; recall: number | null; f1: number | null; support: number }>;
   per_trial: Record<string, { accuracy: number; n: number }>;
-  mismatches: { patient_id: string; trial_id: string; expected: string; predicted: string; label_comment: string; rationale: string }[];
+  mismatches: { patient_id: string; trial_id: string; expected: string; predicted: string; severity: string; hard_case: boolean; label_comment: string; rationale: string }[];
+  core?: Score & { description: string };
+  stress?: Score & { description: string };
+  failure_summary?: Record<string, number>;
   judge: { avg_clarity: number | null; n: number; mode: string | null; distribution: Record<string, number>; samples: { score: number; reason: string }[] };
   mode: string;
   seconds: number;

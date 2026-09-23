@@ -15,7 +15,7 @@ def test_trials_and_patients():
     trials = client.get("/trials").json()
     assert len(trials) == 4 and all(t["rules"] for t in trials)
     patients = client.get("/patients").json()
-    assert len(patients) == 120
+    assert len(patients) == 127
     assert next(p for p in patients if p["id"] == "P006")["anomaly"]["implausible"] is True
 
 
@@ -31,7 +31,9 @@ def test_screen_unknown_trial_404():
 
 def test_metrics_meet_target():
     m = client.get("/metrics?refresh=true").json()
-    assert m["n"] == 480 and m["accuracy"] >= 0.85 and m["relevant"]["accuracy"] >= 0.85
+    assert m["n"] == 508 and m["accuracy"] >= 0.85 and m["relevant"]["accuracy"] >= 0.85
+    assert m["core"]["accuracy"] == 1.0 and m["stress"]["n"] == 28
+    assert sum(m["failure_summary"].values()) == len(m["mismatches"])
     assert m["f1"] is not None and m["macro_f1"] is not None
     assert len(m["confusion_matrix"]) == 3 and m["judge"]["avg_clarity"] is not None
 
@@ -66,7 +68,7 @@ def test_create_trial_and_bad_input():
 
 def test_cohorts_review_audit_security_headers():
     c = client.get("/cohorts").json()
-    assert c["k"] >= 2 and len(c["points"]) == 120
+    assert c["k"] >= 2 and len(c["points"]) == 127
     assert isinstance(client.get("/review").json(), list)
     r = client.get("/audit")
     assert r.headers["x-content-type-options"] == "nosniff"

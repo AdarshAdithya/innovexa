@@ -4,6 +4,7 @@
     "trial_id": "T1-DIAB",
     "expected": "ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Boundary: age exactly 18 and HbA1c exactly 7.0; negated MI in note."
   },
   {
@@ -11,6 +12,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -18,6 +20,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -25,6 +28,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -32,6 +36,7 @@
     "trial_id": "T1-DIAB",
     "expected": "ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Boundaries: age 75, HbA1c 10.5, BMI 40.0, eGFR exactly 45 (not below 45)."
   },
   {
@@ -39,6 +44,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Boundaries: age 75, HbA1c 10.5, BMI 40.0, eGFR exactly 45 (not below 45)."
   },
   {
@@ -46,6 +52,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -53,6 +60,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -60,6 +68,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NEEDS_REVIEW",
     "relevant": true,
+    "hard_case": false,
     "comment": "Missing HbA1c must give UNKNOWN, never a guess."
   },
   {
@@ -67,6 +76,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -74,6 +84,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -81,6 +92,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -88,6 +100,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Glucose 16.0 mmol/L = 288 mg/dL, above the 270 mg/dL cutoff."
   },
   {
@@ -95,6 +108,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -102,6 +116,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -109,6 +124,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -116,6 +132,7 @@
     "trial_id": "T1-DIAB",
     "expected": "ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Glucose 8.0 mmol/L = 144 mg/dL, within limit."
   },
   {
@@ -123,6 +140,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -130,6 +148,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -137,6 +156,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -144,6 +164,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NEEDS_REVIEW",
     "relevant": true,
+    "hard_case": false,
     "comment": "HbA1c 45% is physiologically impossible (data entry error)."
   },
   {
@@ -151,6 +172,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -158,6 +180,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -165,6 +188,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -172,6 +196,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NEEDS_REVIEW",
     "relevant": true,
+    "hard_case": false,
     "comment": "Structured field says not pregnant, the note says pregnant: contradiction needs a human."
   },
   {
@@ -179,6 +204,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -186,6 +212,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -193,6 +220,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -200,6 +228,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "MI 3 months ago is inside the 6-month exclusion window."
   },
   {
@@ -207,6 +236,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -214,6 +244,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -221,6 +252,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -228,6 +260,7 @@
     "trial_id": "T1-DIAB",
     "expected": "ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "MI 3 years ago is outside the 6-month window."
   },
   {
@@ -235,6 +268,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -242,6 +276,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -249,6 +284,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -256,6 +292,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Current insulin use is an exclusion."
   },
   {
@@ -263,6 +300,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -270,6 +308,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -277,6 +316,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -284,6 +324,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -291,6 +332,7 @@
     "trial_id": "T2-HTN",
     "expected": "ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Nested logic: CKD and (T2D or hypertension) satisfied via hypertension."
   },
   {
@@ -298,6 +340,7 @@
     "trial_id": "T3-CKD",
     "expected": "ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Nested logic: CKD and (T2D or hypertension) satisfied via hypertension."
   },
   {
@@ -305,6 +348,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -312,6 +356,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -319,6 +364,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -326,6 +372,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Nested logic: neither type 2 diabetes nor hypertension."
   },
   {
@@ -333,6 +380,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -340,6 +388,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -347,6 +396,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "eGFR 14 below range and currently on dialysis."
   },
   {
@@ -354,6 +404,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "eGFR 14 below range and currently on dialysis."
   },
   {
@@ -361,6 +412,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -368,6 +420,7 @@
     "trial_id": "T1-DIAB",
     "expected": "ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Dialysis status not documented anywhere: unknown, needs review for the CKD trial."
   },
   {
@@ -375,6 +428,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -382,6 +436,7 @@
     "trial_id": "T3-CKD",
     "expected": "NEEDS_REVIEW",
     "relevant": true,
+    "hard_case": false,
     "comment": "Dialysis status not documented anywhere: unknown, needs review for the CKD trial."
   },
   {
@@ -389,6 +444,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -396,6 +452,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -403,6 +460,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -410,6 +468,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -417,6 +476,7 @@
     "trial_id": "T4-BRCA",
     "expected": "ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Meets every breast cancer criterion; negated brain metastases."
   },
   {
@@ -424,6 +484,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -431,6 +492,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -438,6 +500,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -445,6 +508,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "HER2-negative tumour fails the HER2-positive inclusion."
   },
   {
@@ -452,6 +516,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -459,6 +524,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -466,6 +532,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -473,6 +540,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Active brain metastases is an exclusion."
   },
   {
@@ -480,6 +548,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -487,6 +556,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -494,6 +564,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -501,6 +572,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Prior doxorubicin is an exclusion."
   },
   {
@@ -508,6 +580,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -515,6 +588,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -522,6 +596,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -529,6 +604,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NEEDS_REVIEW",
     "relevant": true,
+    "hard_case": false,
     "comment": "Missing eGFR: the eGFR exclusion cannot be ruled out."
   },
   {
@@ -536,6 +612,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -543,6 +620,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Heart failure is an exclusion for the hypertension trial."
   },
   {
@@ -550,6 +628,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -557,6 +636,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -564,6 +644,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -571,6 +652,7 @@
     "trial_id": "T2-HTN",
     "expected": "ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Boundaries: age exactly 40 and systolic BP exactly 140."
   },
   {
@@ -578,6 +660,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -585,6 +668,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -592,6 +676,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -599,6 +684,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Current spironolactone use is an exclusion."
   },
   {
@@ -606,6 +692,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -613,6 +700,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -620,6 +708,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -627,6 +716,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Systolic BP 185 is above the 179 upper limit."
   },
   {
@@ -634,6 +724,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -641,6 +732,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -648,6 +740,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -655,6 +748,7 @@
     "trial_id": "T2-HTN",
     "expected": "ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "180 lb = 81.6 kg, meets the 50 kg minimum."
   },
   {
@@ -662,6 +756,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -669,6 +764,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -676,6 +772,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -683,6 +780,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "100 lb = 45.4 kg, below the 50 kg minimum."
   },
   {
@@ -690,6 +788,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -697,6 +796,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -704,6 +804,7 @@
     "trial_id": "T1-DIAB",
     "expected": "ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Eligible for both the diabetes and hypertension trials."
   },
   {
@@ -711,6 +812,7 @@
     "trial_id": "T2-HTN",
     "expected": "ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Eligible for both the diabetes and hypertension trials."
   },
   {
@@ -718,6 +820,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -725,6 +828,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -732,6 +836,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Age 77 is above the 75 upper limit."
   },
   {
@@ -739,6 +844,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -746,6 +852,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -753,6 +860,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -760,6 +868,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -767,6 +876,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -774,6 +884,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -781,6 +892,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -788,6 +900,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "eGFR 40 excludes from diabetes trial but fits the CKD trial."
   },
   {
@@ -795,6 +908,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -802,6 +916,7 @@
     "trial_id": "T3-CKD",
     "expected": "ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "eGFR 40 excludes from diabetes trial but fits the CKD trial."
   },
   {
@@ -809,6 +924,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -816,6 +932,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -823,6 +940,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Pregnancy is an exclusion."
   },
   {
@@ -830,6 +948,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -837,6 +956,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -844,6 +964,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: old MI."
   },
   {
@@ -851,6 +972,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: old MI."
   },
   {
@@ -858,6 +980,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -865,6 +988,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -872,6 +996,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -879,6 +1004,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: weight in lb."
   },
   {
@@ -886,6 +1012,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -893,6 +1020,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -900,6 +1028,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -907,6 +1036,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -914,6 +1044,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -921,6 +1052,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -928,6 +1060,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -935,6 +1068,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: dialysis undocumented."
   },
   {
@@ -942,6 +1076,7 @@
     "trial_id": "T3-CKD",
     "expected": "NEEDS_REVIEW",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: dialysis undocumented."
   },
   {
@@ -949,6 +1084,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -956,6 +1092,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -963,6 +1100,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -970,6 +1108,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -977,6 +1116,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -984,6 +1124,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: old MI."
   },
   {
@@ -991,6 +1132,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -998,6 +1140,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1005,6 +1148,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1012,6 +1156,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: glucose in mmol/L, MI status undocumented."
   },
   {
@@ -1019,6 +1164,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: glucose in mmol/L, MI status undocumented."
   },
   {
@@ -1026,6 +1172,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1033,6 +1180,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1040,6 +1188,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1047,6 +1196,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1054,6 +1204,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1061,6 +1212,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: weight in lb."
   },
   {
@@ -1068,6 +1220,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1075,6 +1228,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: dialysis undocumented."
   },
   {
@@ -1082,6 +1236,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: dialysis undocumented."
   },
   {
@@ -1089,6 +1244,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1096,6 +1252,7 @@
     "trial_id": "T1-DIAB",
     "expected": "ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "DEMO A: meets every diabetes-trial criterion."
   },
   {
@@ -1103,6 +1260,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1110,6 +1268,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1117,6 +1276,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1124,6 +1284,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "DEMO B: eGFR 39 is below the 45 exclusion cutoff; everything else passes."
   },
   {
@@ -1131,6 +1292,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1138,6 +1300,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1145,6 +1308,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1152,6 +1316,7 @@
     "trial_id": "T1-DIAB",
     "expected": "ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Multi-trial demo: diabetes eligible (MI outside window), hypertension SBP 186 too high, CKD dialysis status undocumented, breast cancer not applicable."
   },
   {
@@ -1159,6 +1324,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Multi-trial demo: diabetes eligible (MI outside window), hypertension SBP 186 too high, CKD dialysis status undocumented, breast cancer not applicable."
   },
   {
@@ -1166,6 +1332,7 @@
     "trial_id": "T3-CKD",
     "expected": "NEEDS_REVIEW",
     "relevant": true,
+    "hard_case": false,
     "comment": "Multi-trial demo: diabetes eligible (MI outside window), hypertension SBP 186 too high, CKD dialysis status undocumented, breast cancer not applicable."
   },
   {
@@ -1173,6 +1340,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1180,6 +1348,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NEEDS_REVIEW",
     "relevant": true,
+    "hard_case": false,
     "comment": "DEMO C: HbA1c missing and the MI in the note has no date; two pieces of evidence needed."
   },
   {
@@ -1187,6 +1356,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1194,6 +1364,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1201,6 +1372,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1208,6 +1380,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1215,6 +1388,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1222,6 +1396,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1229,6 +1404,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1236,6 +1412,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -1243,6 +1420,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -1250,6 +1428,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1257,6 +1436,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1264,6 +1444,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -1271,6 +1452,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1278,6 +1460,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1285,6 +1468,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1292,6 +1476,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1299,6 +1484,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -1306,6 +1492,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1313,6 +1500,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1320,6 +1508,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1327,6 +1516,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1334,6 +1524,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1341,6 +1532,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1348,6 +1540,7 @@
     "trial_id": "T1-DIAB",
     "expected": "ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: HbA1c in mmol/mol."
   },
   {
@@ -1355,6 +1548,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1362,6 +1556,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1369,6 +1564,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1376,6 +1572,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: old MI."
   },
   {
@@ -1383,6 +1580,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: old MI."
   },
   {
@@ -1390,6 +1588,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1397,6 +1596,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1404,6 +1604,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: recent MI."
   },
   {
@@ -1411,6 +1612,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1418,6 +1620,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1425,6 +1628,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1432,6 +1636,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1439,6 +1644,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -1446,6 +1652,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1453,6 +1660,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1460,6 +1668,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: weight in lb, HbA1c in mmol/mol, undated MI."
   },
   {
@@ -1467,6 +1676,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1474,6 +1684,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1481,6 +1692,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1488,6 +1700,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1495,6 +1708,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1502,6 +1716,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1509,6 +1724,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: glucose in mmol/L, brain metastases undocumented."
   },
   {
@@ -1516,6 +1732,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1523,6 +1740,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1530,6 +1748,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1537,6 +1756,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1544,6 +1764,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1551,6 +1772,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -1558,6 +1780,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1565,6 +1788,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1572,6 +1796,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1579,6 +1804,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1586,6 +1812,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -1593,6 +1820,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1600,6 +1828,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: HbA1c in mmol/mol, recent MI."
   },
   {
@@ -1607,6 +1836,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1614,6 +1844,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1621,6 +1852,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1628,6 +1860,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1635,6 +1868,7 @@
     "trial_id": "T2-HTN",
     "expected": "ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -1642,6 +1876,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1649,6 +1884,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1656,6 +1892,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1663,6 +1900,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -1670,6 +1908,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1677,6 +1916,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1684,6 +1924,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1691,6 +1932,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -1698,6 +1940,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1705,6 +1948,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1712,6 +1956,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1719,6 +1964,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1726,6 +1972,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1733,6 +1980,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NEEDS_REVIEW",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: brain metastases undocumented."
   },
   {
@@ -1740,6 +1988,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1747,6 +1996,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1754,6 +2004,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1761,6 +2012,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -1768,6 +2020,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: old MI."
   },
   {
@@ -1775,6 +2028,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1782,6 +2036,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: old MI."
   },
   {
@@ -1789,6 +2044,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1796,6 +2052,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1803,6 +2060,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1810,6 +2068,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: dialysis undocumented."
   },
   {
@@ -1817,6 +2076,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1824,6 +2084,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1831,6 +2092,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1838,6 +2100,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1845,6 +2108,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -1852,6 +2116,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1859,6 +2124,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1866,6 +2132,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1873,6 +2140,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1880,6 +2148,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1887,6 +2156,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: weight in lb."
   },
   {
@@ -1894,6 +2164,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1901,6 +2172,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1908,6 +2180,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1915,6 +2188,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: glucose in mmol/L."
   },
   {
@@ -1922,6 +2196,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1929,6 +2204,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1936,6 +2212,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1943,6 +2220,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1950,6 +2228,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: glucose in mmol/L."
   },
   {
@@ -1957,6 +2236,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1964,6 +2244,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: MI status undocumented."
   },
   {
@@ -1971,6 +2252,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1978,6 +2260,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1985,6 +2268,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1992,6 +2276,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -1999,6 +2284,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2006,6 +2292,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2013,6 +2300,7 @@
     "trial_id": "T4-BRCA",
     "expected": "ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -2020,6 +2308,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2027,6 +2316,7 @@
     "trial_id": "T2-HTN",
     "expected": "ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -2034,6 +2324,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2041,6 +2332,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2048,6 +2340,7 @@
     "trial_id": "T1-DIAB",
     "expected": "ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -2055,6 +2348,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -2062,6 +2356,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2069,6 +2364,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2076,6 +2372,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -2083,6 +2380,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2090,6 +2388,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2097,6 +2396,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2104,6 +2404,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -2111,6 +2412,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2118,6 +2420,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2125,6 +2428,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2132,6 +2436,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2139,6 +2444,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -2146,6 +2452,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2153,6 +2460,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2160,6 +2468,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2167,6 +2476,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: glucose in mmol/L."
   },
   {
@@ -2174,6 +2484,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2181,6 +2492,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2188,6 +2500,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: glucose in mmol/L, old MI."
   },
   {
@@ -2195,6 +2508,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2202,6 +2516,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2209,6 +2524,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2216,6 +2532,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: MI status undocumented."
   },
   {
@@ -2223,6 +2540,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2230,6 +2548,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2237,6 +2556,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2244,6 +2564,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2251,6 +2572,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2258,6 +2580,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2265,6 +2588,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -2272,6 +2596,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: old MI."
   },
   {
@@ -2279,6 +2604,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: old MI."
   },
   {
@@ -2286,6 +2612,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2293,6 +2620,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2300,6 +2628,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: glucose in mmol/L."
   },
   {
@@ -2307,6 +2636,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2314,6 +2644,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2321,6 +2652,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2328,6 +2660,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2335,6 +2668,7 @@
     "trial_id": "T2-HTN",
     "expected": "NEEDS_REVIEW",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: missing lab, glucose in mmol/L."
   },
   {
@@ -2342,6 +2676,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2349,6 +2684,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2356,6 +2692,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2363,6 +2700,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2370,6 +2708,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2377,6 +2716,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: brain metastases undocumented."
   },
   {
@@ -2384,6 +2724,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NEEDS_REVIEW",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: pregnancy contradicts structured field."
   },
   {
@@ -2391,6 +2732,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2398,6 +2740,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: pregnancy contradicts structured field."
   },
   {
@@ -2405,6 +2748,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2412,6 +2756,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2419,6 +2764,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2426,6 +2772,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: dialysis undocumented."
   },
   {
@@ -2433,6 +2780,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2440,6 +2788,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2447,6 +2796,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2454,6 +2804,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2461,6 +2812,7 @@
     "trial_id": "T4-BRCA",
     "expected": "ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -2468,6 +2820,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2475,6 +2828,7 @@
     "trial_id": "T2-HTN",
     "expected": "ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: missing lab."
   },
   {
@@ -2482,6 +2836,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: missing lab."
   },
   {
@@ -2489,6 +2844,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2496,6 +2852,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: implausible bmi, recent MI."
   },
   {
@@ -2503,6 +2860,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2510,6 +2868,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: implausible bmi, recent MI."
   },
   {
@@ -2517,6 +2876,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2524,6 +2884,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: recent MI."
   },
   {
@@ -2531,6 +2892,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: recent MI."
   },
   {
@@ -2538,6 +2900,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2545,6 +2908,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2552,6 +2916,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2559,6 +2924,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2566,6 +2932,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2573,6 +2940,7 @@
     "trial_id": "T4-BRCA",
     "expected": "ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -2580,6 +2948,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2587,6 +2956,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -2594,6 +2964,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -2601,6 +2972,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2608,6 +2980,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NEEDS_REVIEW",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: MI status undocumented."
   },
   {
@@ -2615,6 +2988,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2622,6 +2996,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2629,6 +3004,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2636,6 +3012,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: glucose in mmol/L, old MI."
   },
   {
@@ -2643,6 +3020,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2650,6 +3028,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: glucose in mmol/L, old MI."
   },
   {
@@ -2657,6 +3036,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2664,6 +3044,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -2671,6 +3052,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2678,6 +3060,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2685,6 +3068,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2692,6 +3076,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2699,6 +3084,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2706,6 +3092,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2713,6 +3100,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2720,6 +3108,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2727,6 +3116,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2734,6 +3124,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -2741,6 +3132,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2748,6 +3140,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2755,6 +3148,7 @@
     "trial_id": "T2-HTN",
     "expected": "ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -2762,6 +3156,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2769,6 +3164,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2776,6 +3172,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2783,6 +3180,7 @@
     "trial_id": "T2-HTN",
     "expected": "NEEDS_REVIEW",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: glucose in mmol/L, pregnancy contradicts structured field."
   },
   {
@@ -2790,6 +3188,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2797,6 +3196,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2804,6 +3204,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: recent MI."
   },
   {
@@ -2811,6 +3212,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: recent MI."
   },
   {
@@ -2818,6 +3220,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2825,6 +3228,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2832,6 +3236,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: implausible bmi, recent MI."
   },
   {
@@ -2839,6 +3244,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: implausible bmi, recent MI."
   },
   {
@@ -2846,6 +3252,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2853,6 +3260,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2860,6 +3268,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2867,6 +3276,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2874,6 +3284,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2881,6 +3292,7 @@
     "trial_id": "T4-BRCA",
     "expected": "ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -2888,6 +3300,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2895,6 +3308,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -2902,6 +3316,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2909,6 +3324,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2916,6 +3332,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2923,6 +3340,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2930,6 +3348,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2937,6 +3356,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2944,6 +3364,7 @@
     "trial_id": "T1-DIAB",
     "expected": "ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: old MI."
   },
   {
@@ -2951,6 +3372,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2958,6 +3380,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2965,6 +3388,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2972,6 +3396,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: weight in lb."
   },
   {
@@ -2979,6 +3404,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2986,6 +3412,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -2993,6 +3420,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3000,6 +3428,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3007,6 +3436,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3014,6 +3444,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -3021,6 +3452,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3028,6 +3460,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: weight in lb, MI status undocumented."
   },
   {
@@ -3035,6 +3468,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: weight in lb, MI status undocumented."
   },
   {
@@ -3042,6 +3476,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3049,6 +3484,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3056,6 +3492,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: dialysis undocumented."
   },
   {
@@ -3063,6 +3500,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3070,6 +3508,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: dialysis undocumented."
   },
   {
@@ -3077,6 +3516,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3084,6 +3524,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NEEDS_REVIEW",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: HbA1c in mmol/mol, undated MI."
   },
   {
@@ -3091,6 +3532,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: HbA1c in mmol/mol, undated MI."
   },
   {
@@ -3098,6 +3540,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3105,6 +3548,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3112,6 +3556,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3119,6 +3564,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -3126,6 +3572,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3133,6 +3580,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3140,6 +3588,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -3147,6 +3596,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3154,6 +3604,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3161,6 +3612,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3168,6 +3620,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3175,6 +3628,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -3182,6 +3636,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -3189,6 +3644,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3196,6 +3652,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -3203,6 +3660,7 @@
     "trial_id": "T2-HTN",
     "expected": "ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -3210,6 +3668,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3217,6 +3676,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3224,6 +3684,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3231,6 +3692,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3238,6 +3700,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: dialysis undocumented."
   },
   {
@@ -3245,6 +3708,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3252,6 +3716,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: old MI."
   },
   {
@@ -3259,6 +3724,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3266,6 +3732,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3273,6 +3740,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3280,6 +3748,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -3287,6 +3756,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3294,6 +3764,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3301,6 +3772,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3308,6 +3780,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3315,6 +3788,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: on dialysis."
   },
   {
@@ -3322,6 +3796,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: on dialysis."
   },
   {
@@ -3329,6 +3804,7 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3336,6 +3812,7 @@
     "trial_id": "T1-DIAB",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3343,6 +3820,7 @@
     "trial_id": "T2-HTN",
     "expected": "NOT_ELIGIBLE",
     "relevant": true,
+    "hard_case": false,
     "comment": "Generated: no special edge case."
   },
   {
@@ -3350,6 +3828,7 @@
     "trial_id": "T3-CKD",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
     "comment": "No qualifying diagnosis or demographic mismatch."
   },
   {
@@ -3357,6 +3836,231 @@
     "trial_id": "T4-BRCA",
     "expected": "NOT_ELIGIBLE",
     "relevant": false,
+    "hard_case": false,
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P121",
+    "trial_id": "T1-DIAB",
+    "expected": "ELIGIBLE",
+    "relevant": true,
+    "hard_case": true,
+    "comment": "HARD: interval written in words ('two years ago'); MI is outside the 6-month window."
+  },
+  {
+    "patient_id": "P121",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "relevant": false,
+    "hard_case": true,
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P121",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "relevant": false,
+    "hard_case": true,
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P121",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "relevant": false,
+    "hard_case": true,
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P122",
+    "trial_id": "T1-DIAB",
+    "expected": "ELIGIBLE",
+    "relevant": true,
+    "hard_case": true,
+    "comment": "HARD: negation after the term ('MI was ruled out'); the patient never had an MI."
+  },
+  {
+    "patient_id": "P122",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "relevant": false,
+    "hard_case": true,
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P122",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "relevant": false,
+    "hard_case": true,
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P122",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "relevant": false,
+    "hard_case": true,
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P123",
+    "trial_id": "T1-DIAB",
+    "expected": "ELIGIBLE",
+    "relevant": true,
+    "hard_case": true,
+    "comment": "HARD: diagnosis written as 'Diabetes mellitus type II', a synonym missing from the offline table."
+  },
+  {
+    "patient_id": "P123",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "relevant": false,
+    "hard_case": true,
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P123",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "relevant": false,
+    "hard_case": true,
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P123",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "relevant": false,
+    "hard_case": true,
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P124",
+    "trial_id": "T1-DIAB",
+    "expected": "NOT_ELIGIBLE",
+    "relevant": false,
+    "hard_case": true,
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P124",
+    "trial_id": "T2-HTN",
+    "expected": "ELIGIBLE",
+    "relevant": true,
+    "hard_case": true,
+    "comment": "HARD: systolic BP in kPa (21.3 kPa = 160 mmHg), a unit the rule engine cannot convert."
+  },
+  {
+    "patient_id": "P124",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "relevant": false,
+    "hard_case": true,
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P124",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "relevant": false,
+    "hard_case": true,
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P125",
+    "trial_id": "T1-DIAB",
+    "expected": "NOT_ELIGIBLE",
+    "relevant": true,
+    "hard_case": true,
+    "comment": "HARD: clinical shorthand ('s/p STEMI 3 mo ago'); a recent MI that excludes the patient."
+  },
+  {
+    "patient_id": "P125",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "relevant": false,
+    "hard_case": true,
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P125",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "relevant": false,
+    "hard_case": true,
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P125",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "relevant": false,
+    "hard_case": true,
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P126",
+    "trial_id": "T1-DIAB",
+    "expected": "NEEDS_REVIEW",
+    "relevant": true,
+    "hard_case": true,
+    "comment": "HARD: vague timing ('last spring') cannot be placed against the 6-month window; needs a human."
+  },
+  {
+    "patient_id": "P126",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "relevant": false,
+    "hard_case": true,
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P126",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "relevant": false,
+    "hard_case": true,
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P126",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "relevant": false,
+    "hard_case": true,
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P127",
+    "trial_id": "T1-DIAB",
+    "expected": "NOT_ELIGIBLE",
+    "relevant": true,
+    "hard_case": true,
+    "comment": "HARD: pregnancy written as 'expecting a baby' while the structured field says not pregnant."
+  },
+  {
+    "patient_id": "P127",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "relevant": false,
+    "hard_case": true,
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P127",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "relevant": false,
+    "hard_case": true,
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P127",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "relevant": false,
+    "hard_case": true,
     "comment": "No qualifying diagnosis or demographic mismatch."
   }
 ]
