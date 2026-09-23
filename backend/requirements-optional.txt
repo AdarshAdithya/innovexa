@@ -1,0 +1,2 @@
+# Vector store for RAG. Enable with RAG_BACKEND=chroma. Its default embedding model downloads on first use.
+chromadb>=0.5

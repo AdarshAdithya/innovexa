@@ -1,0 +1,26 @@
+[
+  {
+    "id": "T1-DIAB",
+    "title": "GLUCO-T2D: oral GLP-1 agonist in adults with type 2 diabetes",
+    "condition": "Type 2 diabetes",
+    "criteria_text": "Inclusion Criteria:\n1. Adults aged 18 to 75 years (inclusive).\n2. Diagnosis of type 2 diabetes mellitus.\n3. HbA1c between 7.0% and 10.5% at screening.\n4. Body mass index of 40 kg/m2 or less.\n5. Fasting plasma glucose of 270 mg/dL or less.\nExclusion Criteria:\n1. eGFR below 45 mL/min/1.73m2.\n2. Currently pregnant or planning pregnancy.\n3. Current use of insulin.\n4. Myocardial infarction or stroke within the past 6 months.\n"
+  },
+  {
+    "id": "T2-HTN",
+    "title": "PRESSURE-HTN: once-daily combination therapy for uncontrolled hypertension",
+    "condition": "Hypertension",
+    "criteria_text": "Inclusion Criteria:\n1. Age 40 to 80 years.\n2. Diagnosis of essential hypertension.\n3. Systolic blood pressure between 140 and 179 mmHg.\n4. Body weight of at least 50 kg.\nExclusion Criteria:\n1. eGFR below 30 mL/min/1.73m2.\n2. Diagnosis of heart failure.\n3. Current use of spironolactone.\n4. Currently pregnant.\n"
+  },
+  {
+    "id": "T3-CKD",
+    "title": "RENAL-PROTECT: SGLT2 inhibitor in moderate chronic kidney disease",
+    "condition": "Chronic kidney disease",
+    "criteria_text": "Inclusion Criteria:\n1. Age 18 to 80 years.\n2. Diagnosis of chronic kidney disease.\n3. eGFR between 25 and 60 mL/min/1.73m2.\n4. Either type 2 diabetes or hypertension.\nExclusion Criteria:\n1. History of kidney transplant.\n2. Currently receiving dialysis.\n3. Currently pregnant.\n"
+  },
+  {
+    "id": "T4-BRCA",
+    "title": "HER2-BRIDGE: targeted therapy for HER2-positive breast cancer",
+    "condition": "Breast cancer",
+    "criteria_text": "Inclusion Criteria:\n1. Female sex.\n2. Age 18 years or older.\n3. Diagnosis of breast cancer.\n4. HER2-positive tumour status.\nExclusion Criteria:\n1. Active brain metastases.\n2. Currently pregnant.\n3. Prior treatment with doxorubicin.\n4. eGFR below 30 mL/min/1.73m2.\n"
+  }
+]

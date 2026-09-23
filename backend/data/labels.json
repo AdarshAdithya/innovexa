@@ -1,0 +1,722 @@
+[
+  {
+    "patient_id": "P001",
+    "trial_id": "T1-DIAB",
+    "expected": "ELIGIBLE",
+    "comment": "Boundary: age exactly 18 and HbA1c exactly 7.0; negated MI in note."
+  },
+  {
+    "patient_id": "P001",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P001",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P001",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P002",
+    "trial_id": "T1-DIAB",
+    "expected": "ELIGIBLE",
+    "comment": "Boundaries: age 75, HbA1c 10.5, BMI 40.0, eGFR exactly 45 (not below 45)."
+  },
+  {
+    "patient_id": "P002",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "Boundaries: age 75, HbA1c 10.5, BMI 40.0, eGFR exactly 45 (not below 45)."
+  },
+  {
+    "patient_id": "P002",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P002",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P003",
+    "trial_id": "T1-DIAB",
+    "expected": "NEEDS_REVIEW",
+    "comment": "Missing HbA1c must give UNKNOWN, never a guess."
+  },
+  {
+    "patient_id": "P003",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P003",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P003",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P004",
+    "trial_id": "T1-DIAB",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "Glucose 16.0 mmol/L = 288 mg/dL, above the 270 mg/dL cutoff."
+  },
+  {
+    "patient_id": "P004",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P004",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P004",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P005",
+    "trial_id": "T1-DIAB",
+    "expected": "ELIGIBLE",
+    "comment": "Glucose 8.0 mmol/L = 144 mg/dL, within limit."
+  },
+  {
+    "patient_id": "P005",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P005",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P005",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P006",
+    "trial_id": "T1-DIAB",
+    "expected": "NEEDS_REVIEW",
+    "comment": "HbA1c 45% is physiologically impossible (data entry error)."
+  },
+  {
+    "patient_id": "P006",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P006",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P006",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P007",
+    "trial_id": "T1-DIAB",
+    "expected": "NEEDS_REVIEW",
+    "comment": "Structured field says not pregnant, the note says pregnant: contradiction needs a human."
+  },
+  {
+    "patient_id": "P007",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P007",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P007",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P008",
+    "trial_id": "T1-DIAB",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "MI 3 months ago is inside the 6-month exclusion window."
+  },
+  {
+    "patient_id": "P008",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P008",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P008",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P009",
+    "trial_id": "T1-DIAB",
+    "expected": "ELIGIBLE",
+    "comment": "MI 3 years ago is outside the 6-month window."
+  },
+  {
+    "patient_id": "P009",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P009",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P009",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P010",
+    "trial_id": "T1-DIAB",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "Current insulin use is an exclusion."
+  },
+  {
+    "patient_id": "P010",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P010",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P010",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P011",
+    "trial_id": "T1-DIAB",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P011",
+    "trial_id": "T2-HTN",
+    "expected": "ELIGIBLE",
+    "comment": "Nested logic: CKD and (T2D or hypertension) satisfied via hypertension."
+  },
+  {
+    "patient_id": "P011",
+    "trial_id": "T3-CKD",
+    "expected": "ELIGIBLE",
+    "comment": "Nested logic: CKD and (T2D or hypertension) satisfied via hypertension."
+  },
+  {
+    "patient_id": "P011",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P012",
+    "trial_id": "T1-DIAB",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P012",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P012",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "Nested logic: neither type 2 diabetes nor hypertension."
+  },
+  {
+    "patient_id": "P012",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P013",
+    "trial_id": "T1-DIAB",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P013",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "eGFR 14 below range and currently on dialysis."
+  },
+  {
+    "patient_id": "P013",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "eGFR 14 below range and currently on dialysis."
+  },
+  {
+    "patient_id": "P013",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P014",
+    "trial_id": "T1-DIAB",
+    "expected": "ELIGIBLE",
+    "comment": "Dialysis status not documented anywhere: unknown, needs review for the CKD trial."
+  },
+  {
+    "patient_id": "P014",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P014",
+    "trial_id": "T3-CKD",
+    "expected": "NEEDS_REVIEW",
+    "comment": "Dialysis status not documented anywhere: unknown, needs review for the CKD trial."
+  },
+  {
+    "patient_id": "P014",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P015",
+    "trial_id": "T1-DIAB",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P015",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P015",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P015",
+    "trial_id": "T4-BRCA",
+    "expected": "ELIGIBLE",
+    "comment": "Meets every breast cancer criterion; negated brain metastases."
+  },
+  {
+    "patient_id": "P016",
+    "trial_id": "T1-DIAB",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P016",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P016",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P016",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "HER2-negative tumour fails the HER2-positive inclusion."
+  },
+  {
+    "patient_id": "P017",
+    "trial_id": "T1-DIAB",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P017",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P017",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P017",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "Active brain metastases is an exclusion."
+  },
+  {
+    "patient_id": "P018",
+    "trial_id": "T1-DIAB",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P018",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P018",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P018",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "Prior doxorubicin is an exclusion."
+  },
+  {
+    "patient_id": "P019",
+    "trial_id": "T1-DIAB",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P019",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P019",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P019",
+    "trial_id": "T4-BRCA",
+    "expected": "NEEDS_REVIEW",
+    "comment": "Missing eGFR: the eGFR exclusion cannot be ruled out."
+  },
+  {
+    "patient_id": "P020",
+    "trial_id": "T1-DIAB",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P020",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "Heart failure is an exclusion for the hypertension trial."
+  },
+  {
+    "patient_id": "P020",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P020",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P021",
+    "trial_id": "T1-DIAB",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P021",
+    "trial_id": "T2-HTN",
+    "expected": "ELIGIBLE",
+    "comment": "Boundaries: age exactly 40 and systolic BP exactly 140."
+  },
+  {
+    "patient_id": "P021",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P021",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P022",
+    "trial_id": "T1-DIAB",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P022",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "Current spironolactone use is an exclusion."
+  },
+  {
+    "patient_id": "P022",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P022",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P023",
+    "trial_id": "T1-DIAB",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P023",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "Systolic BP 185 is above the 179 upper limit."
+  },
+  {
+    "patient_id": "P023",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P023",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P024",
+    "trial_id": "T1-DIAB",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P024",
+    "trial_id": "T2-HTN",
+    "expected": "ELIGIBLE",
+    "comment": "180 lb = 81.6 kg, meets the 50 kg minimum."
+  },
+  {
+    "patient_id": "P024",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P024",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P025",
+    "trial_id": "T1-DIAB",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P025",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "100 lb = 45.4 kg, below the 50 kg minimum."
+  },
+  {
+    "patient_id": "P025",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P025",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P026",
+    "trial_id": "T1-DIAB",
+    "expected": "ELIGIBLE",
+    "comment": "Eligible for both the diabetes and hypertension trials."
+  },
+  {
+    "patient_id": "P026",
+    "trial_id": "T2-HTN",
+    "expected": "ELIGIBLE",
+    "comment": "Eligible for both the diabetes and hypertension trials."
+  },
+  {
+    "patient_id": "P026",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P026",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P027",
+    "trial_id": "T1-DIAB",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "Age 77 is above the 75 upper limit."
+  },
+  {
+    "patient_id": "P027",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P027",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P027",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P028",
+    "trial_id": "T1-DIAB",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P028",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P028",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P028",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P029",
+    "trial_id": "T1-DIAB",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "eGFR 40 excludes from diabetes trial but fits the CKD trial."
+  },
+  {
+    "patient_id": "P029",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P029",
+    "trial_id": "T3-CKD",
+    "expected": "ELIGIBLE",
+    "comment": "eGFR 40 excludes from diabetes trial but fits the CKD trial."
+  },
+  {
+    "patient_id": "P029",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P030",
+    "trial_id": "T1-DIAB",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P030",
+    "trial_id": "T2-HTN",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "Pregnancy is an exclusion."
+  },
+  {
+    "patient_id": "P030",
+    "trial_id": "T3-CKD",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  },
+  {
+    "patient_id": "P030",
+    "trial_id": "T4-BRCA",
+    "expected": "NOT_ELIGIBLE",
+    "comment": "No qualifying diagnosis or demographic mismatch."
+  }
+]

@@ -1,0 +1,18 @@
+# secrets: never commit real keys
+.env
+*.env
+!.env.example
+
+# local data stores (screening results can look like PHI even when synthetic)
+*.db
+*.sqlite
+backend/chroma/
+
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+node_modules/
+frontend/dist/
+*.log
+.DS_Store
