@@ -29,7 +29,7 @@ export default function Accuracy() {
   return (
     <div className="space-y-4">
       <ErrorBox error={error} />
-      <div className="grid gap-4 md:grid-cols-4">
+      <div className="grid gap-4 md:grid-cols-5">
         <Card>
           <p className="text-xs uppercase text-slate-500">Accuracy</p>
           <p className={`text-4xl font-bold tabular-nums ${pass ? "text-emerald-600" : "text-rose-600"}`}>{pct(m.accuracy)}</p>
@@ -46,6 +46,11 @@ export default function Accuracy() {
           <p className="text-xs uppercase text-slate-500">Recall (eligible)</p>
           <p className="text-3xl font-bold tabular-nums">{pct(m.recall)}</p>
           <p className="text-xs text-slate-500">Of truly eligible patients, share we found</p>
+        </Card>
+        <Card>
+          <p className="text-xs uppercase text-slate-500">F1 (eligible) · macro F1</p>
+          <p className="text-3xl font-bold tabular-nums">{pct(m.f1)}</p>
+          <p className="text-xs text-slate-500">macro F1 across 3 classes: {pct(m.macro_f1)}</p>
         </Card>
         <Card>
           <p className="text-xs uppercase text-slate-500">Explanation clarity</p>
@@ -67,21 +72,45 @@ export default function Accuracy() {
         <span className="text-xs text-slate-500">Mode: {m.mode} · {m.seconds}s</span>
       </div>
 
+      {m.relevant && (
+        <Card title="Condition-relevant pairs only">
+          <div className="flex flex-wrap items-baseline gap-6 text-sm">
+            <span>
+              Accuracy <b className="text-2xl tabular-nums">{pct(m.relevant.accuracy)}</b> on {m.relevant.n} pairs
+            </span>
+            <span>F1 (eligible) <b>{pct(m.relevant.f1)}</b></span>
+            <span>macro F1 <b>{pct(m.relevant.macro_f1)}</b></span>
+            <span className="text-xs text-slate-500">{m.relevant.description}</span>
+          </div>
+        </Card>
+      )}
+
       <p className="rounded-lg bg-slate-100 px-3 py-2 text-xs text-slate-600">
-        Read this number carefully: {m.per_class.NOT_ELIGIBLE.support} of {m.n} labeled pairs are NOT_ELIGIBLE (most patients
-        do not have the trial's condition), so eligible precision/recall and the review class matter more than headline
-        accuracy. In offline mode the deterministic parser was written against these protocol phrasings; connect the event
-        model and upload a new protocol to test generalisation. The offline clarity judge is a fixed rubric, not an
-        independent model.
+        Dataset: {m.dataset?.patients} synthetic patients × {m.dataset?.trials} trials = {m.dataset?.labeled_pairs} labeled
+        pairs ({m.dataset && Object.entries(m.dataset.label_mix).map(([k, v]) => `${v} ${k}`).join(", ")}). Labels come from
+        independent ground-truth functions in generate.py. Read the headline with care: most pairs are NOT_ELIGIBLE because
+        the patient lacks the trial's condition, so the condition-relevant score and per-class F1 matter more. In offline
+        mode the parser and note reader were written for these protocol phrasings; connect the event model and upload a new
+        protocol to test generalisation. The offline clarity judge is a fixed rubric, not an independent model.
       </p>
 
       {m.baseline && (
         <Card title="Hybrid vs pure-LLM baseline">
           {m.baseline.available ? (
-            <p className="text-sm">
-              Hybrid (rules decide): <b>{pct(m.accuracy)}</b> · Pure LLM (no rule engine): <b>{pct(m.baseline.accuracy)}</b> on{" "}
-              {m.baseline.n} pairs.
-            </p>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <div className="rounded-lg bg-emerald-50 p-3">
+                <p className="text-xs uppercase text-emerald-800">Hybrid: rules decide, LLM reads</p>
+                <p className="text-2xl font-bold tabular-nums">{pct(m.accuracy)}</p>
+                <p className="text-xs">F1 {pct(m.f1)} · macro F1 {pct(m.macro_f1)}</p>
+              </div>
+              <div className="rounded-lg bg-slate-100 p-3">
+                <p className="text-xs uppercase text-slate-600">Pure LLM, no rule engine</p>
+                <p className="text-2xl font-bold tabular-nums">{pct(m.baseline.accuracy)}</p>
+                <p className="text-xs">
+                  F1 {pct(m.baseline.f1)} · macro F1 {pct(m.baseline.macro_f1)} · {m.baseline.n} pairs
+                </p>
+              </div>
+            </div>
           ) : (
             <p className="text-sm text-slate-500">{m.baseline.reason}</p>
           )}
@@ -125,6 +154,7 @@ export default function Accuracy() {
                 <th>Class</th>
                 <th>Precision</th>
                 <th>Recall</th>
+                <th>F1</th>
                 <th>Support</th>
               </tr>
             </thead>
@@ -134,6 +164,7 @@ export default function Accuracy() {
                   <td>{NICE[l]}</td>
                   <td>{pct(m.per_class[l].precision)}</td>
                   <td>{pct(m.per_class[l].recall)}</td>
+                  <td>{pct(m.per_class[l].f1)}</td>
                   <td>{m.per_class[l].support}</td>
                 </tr>
               ))}

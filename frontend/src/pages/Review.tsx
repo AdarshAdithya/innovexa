@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { api, type ReviewItem } from "../api";
+import type { Shared } from "../App";
 import { Button, Card, DecisionBadge, ErrorBox, Spinner } from "../components/ui";
 
-export default function Review() {
+export default function Review({ s }: { s: Shared }) {
   const [items, setItems] = useState<ReviewItem[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [notes, setNotes] = useState<Record<string, string>>({});
@@ -12,6 +13,12 @@ export default function Review() {
     load();
   }, []);
 
+  async function recheck(it: ReviewItem) {
+    const [v] = await api.screen(it.trial_id, [it.patient_id]);
+    s.open(v, () => load());
+    load();
+  }
+
   async function decide(it: ReviewItem, decision: string) {
     const key = it.patient_id + it.trial_id;
     await api.submitReview({ patient_id: it.patient_id, trial_id: it.trial_id, decision, note: notes[key] ?? "" });
@@ -20,8 +27,9 @@ export default function Review() {
 
   if (error) return <ErrorBox error={error} />;
   if (!items) return <Spinner />;
+  items.sort((a, b) => Number(b.decision === "NEEDS_REVIEW") - Number(a.decision === "NEEDS_REVIEW"));
   return (
-    <Card title={`Human review queue (${items.filter((i) => !i.reviewed).length} open)`}>
+    <Card title={`Human review queue (${items.filter((i) => !i.reviewed && i.decision === "NEEDS_REVIEW").length} open)`}>
       <p className="mb-3 text-xs text-slate-500">
         Cases the agent escalated: unknown criteria, contradictions or flagged data. A reviewer's decision is recorded in the
         audit log; it does not overwrite the system verdict, so accuracy stays honest.
@@ -42,8 +50,30 @@ export default function Review() {
                   </span>
                 )}
               </div>
-              {it.unknown.length > 0 && <p className="mt-1 text-xs text-amber-800">Unknown: {it.unknown.join("; ")}</p>}
+              {it.next_best_evidence?.length > 0 ? (
+                <div className="mt-1 text-xs">
+                  <p className="font-semibold text-amber-900">Next best evidence</p>
+                  <ol className="list-decimal pl-5 text-slate-700">
+                    {it.next_best_evidence.map((n) => (
+                      <li key={n.rule_id}>
+                        <b>{n.impact}</b> · {n.request}{" "}
+                        <span className="text-slate-500">[{n.section}]</span>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              ) : (
+                it.unknown.length > 0 && <p className="mt-1 text-xs text-amber-800">Unknown: {it.unknown.join("; ")}</p>
+              )}
               {it.flags.length > 0 && <p className="mt-1 text-xs text-slate-600">Flags: {it.flags.join("; ")}</p>}
+              <div className="mt-2 flex flex-wrap gap-2">
+                <Button variant="ghost" onClick={() => recheck(it)}>
+                  Open evidence / re-check
+                </Button>
+                <Button variant="ghost" onClick={() => s.openPatient(it.patient_id)}>
+                  Patient map
+                </Button>
+              </div>
               {!it.reviewed && it.decision === "NEEDS_REVIEW" && (
                 <div className="mt-2 flex flex-wrap gap-2">
                   <input

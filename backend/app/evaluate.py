@@ -30,9 +30,15 @@ def score(pairs: list[tuple[str, str]]) -> dict:
         fn = sum(e == c and p != c for e, p in pairs)
         per_class[c] = {"precision": round(tp / (tp + fp), 3) if tp + fp else None,
                         "recall": round(tp / (tp + fn), 3) if tp + fn else None, "support": tp + fn}
+    for c in CLASSES:
+        pc = per_class[c]
+        p_, r_ = pc["precision"], pc["recall"]
+        pc["f1"] = round(2 * p_ * r_ / (p_ + r_), 3) if p_ and r_ else (0.0 if pc["support"] else None)
     tp = per_class["ELIGIBLE"]
+    f1s = [per_class[c]["f1"] for c in CLASSES if per_class[c]["support"]]
     return {"n": n, "correct": correct, "accuracy": round(correct / n, 4) if n else 0.0,
-            "precision": tp["precision"], "recall": tp["recall"], "labels": CLASSES,
+            "precision": tp["precision"], "recall": tp["recall"], "f1": tp["f1"],
+            "macro_f1": round(sum(f1s) / len(f1s), 3) if f1s else None, "labels": CLASSES,
             "confusion_matrix": matrix, "per_class": per_class}
 
 
@@ -42,33 +48,39 @@ def run(refresh: bool = False, with_baseline: bool = False) -> dict:
         return cached
     t0 = time.time()
     labels = load_labels()
-    trials = {t.id: t for t in db.get_trials()}
-    patients = {p.id: p for p in db.get_patients()}
+    trials = {t.id: t for t in db.benchmark_trials()}
+    patients = {p.id: p for p in db.benchmark_patients()}
     flags = anomaly_flags(list(patients.values()))
-    pairs, mismatches, judged, per_trial = [], [], [], {}
+    pairs, relevant, mismatches, judged, per_trial = [], [], [], [], {}
     for tid, trial in trials.items():
         rules, _ = parse_criteria(trial)
         for pid, patient in patients.items():
             lab = labels.get((pid, tid))
-            v = screen_one(trial, patient, rules, flags)
+            v = screen_one(trial, patient, rules, flags, save=False)
             if len(judged) < (40 if llm.llm_available() else 10_000):
                 judged.append(judge(v))
             if lab is None:
                 continue
             exp, got = lab["expected"], v.decision.value
             pairs.append((exp, got))
+            if lab.get("relevant"):
+                relevant.append((exp, got))
             per_trial.setdefault(tid, []).append((exp, got))
             if exp != got:
                 mismatches.append({"patient_id": pid, "trial_id": tid, "expected": exp, "predicted": got,
                                    "label_comment": lab["comment"], "rationale": v.rationale})
     out = score(pairs)
     out["per_trial"] = {tid: {"accuracy": score(p)["accuracy"], "n": len(p)} for tid, p in per_trial.items()}
+    out["relevant"] = {**score(relevant), "description": "pairs where the patient has the trial's target condition"}
     out["mismatches"] = mismatches
     out["judge"] = {"avg_clarity": round(sum(j["score"] for j in judged) / len(judged), 2) if judged else None,
                     "n": len(judged), "mode": judged[0]["judge"] if judged else None,
                     "distribution": {s: sum(j["score"] == s for j in judged) for s in range(1, 6)},
                     "samples": judged[:5]}
     out["mode"] = "llm" if llm.llm_available() else "offline (deterministic parser + note reader)"
+    out["dataset"] = {"patients": len(patients), "trials": len(trials), "labeled_pairs": len(labels),
+                      "label_mix": {c: sum(v["expected"] == c for v in labels.values()) for c in CLASSES},
+                      "source": "synthetic, backend/data/generate.py (labels from independent ground-truth functions)"}
     out["seconds"] = round(time.time() - t0, 2)
     out["target"] = 0.85
     out["baseline"] = baseline(labels, trials, patients) if with_baseline else (cached or {}).get("baseline")

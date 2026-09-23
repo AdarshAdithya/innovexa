@@ -18,6 +18,19 @@
 - [x] Phase 11: edge-case tests (negation, boundaries, missing, units, contradictions, empty trial, malformed record, nested logic, injection)
 - [x] Phase 12: README, prompt log
 
+## Upgrade: INNOVEXA (supervisor + evidence features)
+- [x] Clinical Screening Supervisor with 7 workers; planner (LLM tool calling or fixed plan); enforced mandatory stages
+- [x] Structured trace events only (no model free text); skip / hallucinated verdict / planner crash handled and tested
+- [x] Verification Agent: recomputation from raw record, note-reader cross-check, coverage and decision checks
+- [x] Next Best Evidence with grouped evidence, simulated outcomes, cohort-based impact
+- [x] Evidence entry + re-screen + reset endpoints and UI
+- [x] Why-not with exact comparison; counterfactuals from rules only
+- [x] Trial opportunity map per patient
+- [x] Decision provenance graph and temporal timeline
+- [x] Benchmark: 120 patients, 480 labels, demo patients P040–P043; F1, macro F1, condition-relevant metrics
+- [x] Dashboard KPIs; review queue with next best evidence; cohort-question intents
+- [x] 73 tests
+
 ## Tier 3 extras
 - [x] Human-in-the-loop review queue (`/review`)
 - [x] Counterfactuals

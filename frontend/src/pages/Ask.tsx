@@ -3,10 +3,11 @@ import { api, type QueryResult } from "../api";
 import { Button, Card, DecisionBadge } from "../components/ui";
 
 const EXAMPLES = [
+  "How many patients are potentially eligible for Trial T2?",
+  "Why is P042 in review?",
+  "Which criteria are most frequently failing?",
   "Which patients over 60 are eligible for the diabetes trial?",
   "Who needs review for the kidney trial?",
-  "Show women eligible for the breast cancer trial",
-  "Which screened patients have flags?",
 ];
 
 export default function Ask() {
@@ -32,8 +33,8 @@ export default function Ask() {
     <div className="space-y-4">
       <Card title="Ask about the cohort">
         <p className="mb-3 text-xs text-slate-500">
-          Questions are turned into a validated filter over saved screening results. The model never runs SQL. Screen
-          trials first so there are results to search.
+          Questions become a validated filter over saved screening results, or a deterministic intent (explain a patient,
+          most-failing criteria). The model never runs SQL. The dashboard screens every trial on first load.
         </p>
         <form
           onSubmit={(e) => {
@@ -71,6 +72,20 @@ export default function Ask() {
               <p className="text-xs text-slate-500">
                 filter {JSON.stringify(r.filter)} · parsed by {r.parsed_by}
               </p>
+              {r.table && r.table.length > 0 && (
+                <table className="mt-2 w-full text-left text-sm">
+                  <tbody>
+                    {r.table.map((t) => (
+                      <tr key={t.trial_id + t.section} className="border-t border-slate-100">
+                        <td className="py-1 font-mono text-xs">{t.trial_id}</td>
+                        <td className="text-xs text-slate-500">{t.section}</td>
+                        <td>{t.criterion}</td>
+                        <td className="text-right font-semibold tabular-nums">{t.count}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
               {r.rows.length > 0 && (
                 <table className="mt-2 w-full text-left text-sm">
                   <tbody>

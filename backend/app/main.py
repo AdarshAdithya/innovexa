@@ -9,10 +9,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 
-from . import agent, config, db, evaluate, llm, ml, query
-from .models import QueryRequest, ScreenRequest, Trial, TrialCreate
+from . import config, db, evaluate, llm, ml, query, supervisor
+from .models import EvidenceUpdate, LabValue, Patient, QueryRequest, ScreenRequest, Trial, TrialCreate
 from .parser import parse_criteria
-from .screening import anomaly_flags, screen
+from .screening import anomaly_flags, opportunities, screen
 from .security import SecurityMiddleware
 
 
@@ -78,6 +78,73 @@ def rankings(patient_id: str):
     return ml.rank_trials(p, db.get_trials(), decided)
 
 
+@app.get("/patients/{patient_id}/opportunities")
+def patient_opportunities(patient_id: str):
+    try:
+        out = opportunities(patient_id)
+    except KeyError as e:
+        raise HTTPException(404, str(e))
+    db.audit("opportunity_map", {"patient_id": patient_id, "trials": len(out["trials"])})
+    return out
+
+
+@app.post("/patients/{patient_id}/evidence")
+def add_evidence(patient_id: str, body: EvidenceUpdate):
+    """Record newly obtained evidence (e.g. a lab result requested by Next Best Evidence)."""
+    p = db.get_patient(patient_id)
+    if p is None:
+        raise HTTPException(404, "unknown patient")
+    data = p.model_dump()
+    for k, v in body.labs.items():
+        data["labs"][k] = v.model_dump() if isinstance(v, LabValue) else v
+    if body.pregnant is not None:
+        data["pregnant"] = body.pregnant
+    if body.notes_append.strip():
+        data["notes"] = (data["notes"].rstrip() + " " + body.notes_append.strip()).strip()[:5000]
+    data["conditions"] += [c for c in body.conditions_add if c.strip()]
+    data["medications"] += [m for m in body.medications_add if m.strip()]
+    updated = Patient(**data)
+    db.save_patient(updated)
+    db.audit("evidence_added", {"patient_id": patient_id, "labs": sorted(body.labs), "pregnant": body.pregnant is not None,
+                                "note_appended": bool(body.notes_append.strip()),
+                                "conditions": len(body.conditions_add), "medications": len(body.medications_add)})
+    return updated.model_dump()
+
+
+@app.post("/patients/{patient_id}/reset")
+def reset_patient(patient_id: str):
+    """Restore a patient to the benchmark record so the demo can be repeated."""
+    original = db.benchmark_patient(patient_id)
+    if original is None:
+        raise HTTPException(404, "patient is not part of the benchmark dataset")
+    db.save_patient(original)
+    db.audit("patient_reset", {"patient_id": patient_id})
+    return original.model_dump()
+
+
+@app.get("/summary")
+def summary():
+    patients = db.get_patients()
+    trials = db.get_trials()
+    verdicts = db.get_verdicts()
+    if not llm.llm_available():
+        per_trial: dict[str, int] = {}
+        for v in verdicts:
+            per_trial[v["trial_id"]] = per_trial.get(v["trial_id"], 0) + 1
+        missing = [t for t in trials if per_trial.get(t.id, 0) < len(patients)]
+        for t in missing:
+            screen(t.id)
+        if missing:
+            verdicts = db.get_verdicts()
+    flags = anomaly_flags(patients)
+    counts = {d: sum(v["decision"] == d for v in verdicts) for d in evaluate.CLASSES}
+    return {"patients": len(patients), "trials": len(trials), "screened_pairs": len(verdicts), **counts,
+            "implausible": sum(1 for f in flags.values() if f["implausible"]),
+            "advisory_outliers": sum(1 for f in flags.values() if f["outlier"] and not f["implausible"]),
+            "contradictions": sum(1 for v in verdicts if any("contradiction" in f for f in v.get("flags", []))),
+            "mode": "llm" if llm.llm_available() else "offline"}
+
+
 @app.post("/screen")
 def screen_endpoint(body: ScreenRequest):
     try:
@@ -97,7 +164,7 @@ def screen_stream(trial_id: str = Query(max_length=64),
 
     def events():
         for pid in ids:
-            for e in agent.run(trial_id, pid):
+            for e in supervisor.run(trial_id, pid):
                 yield f"data: {json.dumps({'patient_id': pid, 'trial_id': trial_id, **e}, default=str)}\n\n"
         yield f"data: {json.dumps({'type': 'done', 'content': f'screened {len(ids)} patient(s)'})}\n\n"
 
@@ -139,7 +206,7 @@ def review_queue():
         out.append({"patient_id": v["patient_id"], "trial_id": v["trial_id"], "decision": v["decision"],
                     "flags": v.get("flags", []),
                     "unknown": [c["source_text"] for c in v["results"] if c["status"] == "UNKNOWN"],
-                    "reviewed": r})
+                    "next_best_evidence": v.get("next_best_evidence", [])[:3], "reviewed": r})
     return sorted(out, key=lambda x: (x["reviewed"] is not None, x["trial_id"], x["patient_id"]))
 
 

@@ -7,10 +7,11 @@ import Ask from "./pages/Ask";
 import Cohorts from "./pages/Cohorts";
 import Dashboard from "./pages/Dashboard";
 import Grid from "./pages/Grid";
+import PatientMap from "./pages/PatientMap";
 import Review from "./pages/Review";
 import Screening from "./pages/Screening";
 
-const TABS = ["Dashboard", "Screening", "All trials", "Accuracy", "Ask", "Cohorts", "Review"] as const;
+const TABS = ["Dashboard", "Patient", "Screening", "All trials", "Review", "Ask", "Accuracy", "Cohorts"] as const;
 export type Tab = (typeof TABS)[number];
 
 export interface Shared {
@@ -18,8 +19,9 @@ export interface Shared {
   patients: Patient[];
   verdicts: Record<string, Verdict[]>;
   setVerdicts: (trialId: string, v: Verdict[]) => void;
-  open: (v: Verdict) => void;
+  open: (v: Verdict, onChanged?: (v: Verdict) => void) => void;
   go: (t: Tab, trialId?: string) => void;
+  openPatient: (pid: string) => void;
   selectedTrial: string;
   refresh: () => void;
 }
@@ -29,7 +31,8 @@ export default function App() {
   const [trials, setTrials] = useState<Trial[]>([]);
   const [patients, setPatients] = useState<Patient[]>([]);
   const [verdicts, setAll] = useState<Record<string, Verdict[]>>({});
-  const [drawer, setDrawer] = useState<Verdict | null>(null);
+  const [drawer, setDrawer] = useState<{ v: Verdict; onChanged?: (v: Verdict) => void } | null>(null);
+  const [patientId, setPatientId] = useState("P042");
   const [selectedTrial, setSelectedTrial] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [mode, setMode] = useState<string>("");
@@ -55,10 +58,14 @@ export default function App() {
     patients,
     verdicts,
     setVerdicts: (id, v) => setAll((all) => ({ ...all, [id]: v })),
-    open: setDrawer,
+    open: (v, onChanged) => setDrawer({ v, onChanged }),
     go: (t, trialId) => {
       if (trialId) setSelectedTrial(trialId);
       setTab(t);
+    },
+    openPatient: (pid) => {
+      setPatientId(pid);
+      setTab("Patient");
     },
     selectedTrial,
     refresh,
@@ -69,11 +76,13 @@ export default function App() {
       <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/90 backdrop-blur">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-6 gap-y-2 px-4 py-3">
           <div className="flex items-center gap-2">
-            <span className="grid h-8 w-8 place-items-center rounded-lg bg-slate-900 text-sm font-bold text-white">CT</span>
+            <span className="grid h-9 w-9 place-items-center rounded-lg bg-gradient-to-br from-slate-900 to-sky-800 text-sm font-bold text-white">
+              IX
+            </span>
             <div>
-              <h1 className="text-sm font-semibold leading-tight">Trial Eligibility Screener</h1>
+              <h1 className="text-sm font-bold leading-tight tracking-wide">INNOVEXA</h1>
               <p className="text-[11px] text-slate-500">
-                Rules decide · AI explains · synthetic data only{mode && ` · ${mode}`}
+                Evidence-first trial eligibility · rules decide, AI explains · synthetic data{mode && ` · ${mode}`}
               </p>
             </div>
           </div>
@@ -96,19 +105,28 @@ export default function App() {
       <main className="mx-auto max-w-7xl space-y-4 px-4 py-5">
         <ErrorBox error={error} />
         {tab === "Dashboard" && <Dashboard s={shared} />}
+        {tab === "Patient" && <PatientMap s={shared} patientId={patientId} onPatient={setPatientId} />}
         {tab === "Screening" && <Screening s={shared} onTrial={setSelectedTrial} />}
         {tab === "All trials" && <Grid s={shared} />}
         {tab === "Accuracy" && <Accuracy />}
         {tab === "Ask" && <Ask />}
         {tab === "Cohorts" && <Cohorts patients={patients} />}
-        {tab === "Review" && <Review />}
+        {tab === "Review" && <Review s={shared} />}
       </main>
 
       {drawer && (
         <PatientDrawer
-          verdict={drawer}
-          patient={patients.find((p) => p.id === drawer.patient_id)}
+          verdict={drawer.v}
+          patient={patients.find((p) => p.id === drawer.v.patient_id)}
           onClose={() => setDrawer(null)}
+          onChanged={(v) => {
+            setAll((all) => ({
+              ...all,
+              [v.trial_id]: (all[v.trial_id] ?? []).map((x) => (x.patient_id === v.patient_id ? v : x)),
+            }));
+            drawer.onChanged?.(v);
+            refresh();
+          }}
         />
       )}
     </div>

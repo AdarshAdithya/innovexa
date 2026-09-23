@@ -102,3 +102,21 @@ def contradiction(rule: Rule, patient: Patient) -> Optional[str]:
         return (f"structured {rule.field} says {'yes' if structured else 'no'} but note says "
                 f"\"{mentions[0][0]}\"")
     return None
+
+
+def temporal_facts(rule: Rule, patient: Patient) -> Optional[dict]:
+    """Timeline data for a time-windowed criterion, taken only from dates stated in the note."""
+    window = WINDOW.search(rule.source_text or "")
+    if not window:
+        return None
+    window_months = int(window.group(1)) * TO_MONTHS[window.group(2).lower()]
+    events = []
+    for c in concepts_in(rule.source_text):
+        for sent, neg in find_mentions(patient.notes, c):
+            ago = AGO.search(sent)
+            months = int(ago.group(1)) * TO_MONTHS[ago.group(2).lower()] if ago else None
+            events.append({"concept": c, "sentence": sent, "negated": neg,
+                           "months_ago": round(months, 2) if months is not None else None,
+                           "stated_as": ago.group(0) if ago else None,
+                           "inside_window": None if months is None or neg else months <= window_months})
+    return {"window_months": window_months, "window_text": window.group(0), "events": events}

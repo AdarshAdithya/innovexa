@@ -15,7 +15,7 @@ def test_trials_and_patients():
     trials = client.get("/trials").json()
     assert len(trials) == 4 and all(t["rules"] for t in trials)
     patients = client.get("/patients").json()
-    assert len(patients) == 30
+    assert len(patients) == 120
     assert next(p for p in patients if p["id"] == "P006")["anomaly"]["implausible"] is True
 
 
@@ -31,7 +31,8 @@ def test_screen_unknown_trial_404():
 
 def test_metrics_meet_target():
     m = client.get("/metrics?refresh=true").json()
-    assert m["n"] == 120 and m["accuracy"] >= 0.85
+    assert m["n"] == 480 and m["accuracy"] >= 0.85 and m["relevant"]["accuracy"] >= 0.85
+    assert m["f1"] is not None and m["macro_f1"] is not None
     assert len(m["confusion_matrix"]) == 3 and m["judge"]["avg_clarity"] is not None
 
 
@@ -40,6 +41,10 @@ def test_stream_emits_trace_and_final():
         events = [json.loads(line[6:]) for line in r.iter_lines() if line.startswith("data: ")]
     kinds = [e["type"] for e in events]
     assert "tool_call" in kinds and "verify" in kinds and kinds[-1] == "done"
+    steps = [e.get("step") for e in events]
+    for s in ("criteria_parsed", "patient_evidence_extracted", "rule_evaluation", "verification", "final_verdict"):
+        assert s in steps
+    assert "thought" not in kinds
     final = next(e for e in events if e["type"] == "final")
     assert final["data"]["verdict"]["decision"] == "NOT_ELIGIBLE"
 
@@ -61,7 +66,7 @@ def test_create_trial_and_bad_input():
 
 def test_cohorts_review_audit_security_headers():
     c = client.get("/cohorts").json()
-    assert c["k"] >= 2 and len(c["points"]) == 30
+    assert c["k"] >= 2 and len(c["points"]) == 120
     assert isinstance(client.get("/review").json(), list)
     r = client.get("/audit")
     assert r.headers["x-content-type-options"] == "nosniff"

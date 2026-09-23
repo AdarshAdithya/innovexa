@@ -663,5 +663,1993 @@
     },
     "pregnant": true,
     "notes": "Chronic hypertension, 20 weeks pregnant."
+  },
+  {
+    "id": "P031",
+    "age": 51,
+    "sex": "F",
+    "conditions": [
+      "Type 2 diabetes mellitus",
+      "Hypertension"
+    ],
+    "medications": [
+      "Metformin",
+      "Amlodipine"
+    ],
+    "labs": {
+      "hba1c": 10.9,
+      "egfr": 43,
+      "bmi": 33.8,
+      "systolic_bp": 129,
+      "fasting_glucose": 117,
+      "weight": 49.5
+    },
+    "pregnant": false,
+    "notes": "Myocardial infarction 9 years ago, stable since. Seen in clinic for review."
+  },
+  {
+    "id": "P032",
+    "age": 36,
+    "sex": "F",
+    "conditions": [
+      "Hypertension"
+    ],
+    "medications": [
+      "Ramipril"
+    ],
+    "labs": {
+      "hba1c": 5.1,
+      "egfr": 75,
+      "bmi": 21.6,
+      "systolic_bp": 173,
+      "fasting_glucose": 80,
+      "weight": {
+        "value": 156,
+        "unit": "lb"
+      }
+    },
+    "pregnant": false,
+    "notes": "Routine follow-up visit."
+  },
+  {
+    "id": "P033",
+    "age": 26,
+    "sex": "M",
+    "conditions": [
+      "Osteoarthritis"
+    ],
+    "medications": [],
+    "labs": {
+      "egfr": 111,
+      "bmi": 41.1,
+      "systolic_bp": 127,
+      "fasting_glucose": 86,
+      "weight": 98.4
+    },
+    "pregnant": false,
+    "notes": "Adherent to current medication."
+  },
+  {
+    "id": "P034",
+    "age": 51,
+    "sex": "M",
+    "conditions": [
+      "Hypertension",
+      "Chronic kidney disease"
+    ],
+    "medications": [
+      "Losartan"
+    ],
+    "labs": {
+      "hba1c": 5.1,
+      "egfr": 27,
+      "bmi": 36.5,
+      "systolic_bp": 134,
+      "fasting_glucose": 84,
+      "weight": 84.7
+    },
+    "pregnant": false,
+    "notes": "Seen in clinic for review."
+  },
+  {
+    "id": "P035",
+    "age": 23,
+    "sex": "M",
+    "conditions": [
+      "Hypertension"
+    ],
+    "medications": [
+      "Amlodipine"
+    ],
+    "labs": {
+      "hba1c": 5.4,
+      "egfr": 40,
+      "bmi": 24.3,
+      "systolic_bp": 165,
+      "fasting_glucose": 87,
+      "weight": 94.4
+    },
+    "pregnant": false,
+    "notes": "Lives independently."
+  },
+  {
+    "id": "P036",
+    "age": 70,
+    "sex": "M",
+    "conditions": [
+      "Type 2 diabetes mellitus"
+    ],
+    "medications": [
+      "Metformin"
+    ],
+    "labs": {
+      "hba1c": 8.2,
+      "egfr": 60,
+      "bmi": 43.9,
+      "systolic_bp": 112,
+      "fasting_glucose": 240,
+      "weight": 81.5
+    },
+    "pregnant": false,
+    "notes": "Myocardial infarction 20 months ago, stable since. Reports good exercise tolerance."
+  },
+  {
+    "id": "P037",
+    "age": 83,
+    "sex": "M",
+    "conditions": [
+      "Type 2 diabetes mellitus",
+      "Hypertension",
+      "Heart failure"
+    ],
+    "medications": [
+      "Metformin",
+      "Ramipril"
+    ],
+    "labs": {
+      "hba1c": 10.0,
+      "egfr": 100,
+      "bmi": 37.8,
+      "systolic_bp": 168,
+      "fasting_glucose": {
+        "value": 7.7,
+        "unit": "mmol/L"
+      },
+      "weight": 65.5
+    },
+    "pregnant": false,
+    "notes": "Adherent to current medication."
+  },
+  {
+    "id": "P038",
+    "age": 29,
+    "sex": "F",
+    "conditions": [
+      "Breast cancer",
+      "HER2-negative"
+    ],
+    "medications": [
+      "Letrozole"
+    ],
+    "labs": {
+      "hba1c": 5.7,
+      "egfr": 109,
+      "bmi": 24.0,
+      "systolic_bp": 127,
+      "fasting_glucose": 84,
+      "weight": {
+        "value": 188,
+        "unit": "lb"
+      }
+    },
+    "pregnant": false,
+    "notes": "No brain metastases on staging MRI. Lives independently."
+  },
+  {
+    "id": "P039",
+    "age": 46,
+    "sex": "M",
+    "conditions": [
+      "Hypertension",
+      "Chronic kidney disease"
+    ],
+    "medications": [
+      "Amlodipine"
+    ],
+    "labs": {
+      "hba1c": 5.8,
+      "egfr": 62,
+      "bmi": 20.7,
+      "systolic_bp": 193,
+      "fasting_glucose": 82,
+      "weight": 52.3
+    },
+    "pregnant": false,
+    "notes": "Reports good exercise tolerance."
+  },
+  {
+    "id": "P040",
+    "age": 54,
+    "sex": "M",
+    "conditions": [
+      "Type 2 diabetes mellitus"
+    ],
+    "medications": [
+      "Metformin"
+    ],
+    "labs": {
+      "hba1c": 8.3,
+      "egfr": 88,
+      "bmi": 29.5,
+      "systolic_bp": 128,
+      "fasting_glucose": 165,
+      "weight": 86
+    },
+    "pregnant": false,
+    "notes": "No history of myocardial infarction or stroke."
+  },
+  {
+    "id": "P041",
+    "age": 61,
+    "sex": "F",
+    "conditions": [
+      "Type 2 diabetes mellitus"
+    ],
+    "medications": [
+      "Metformin"
+    ],
+    "labs": {
+      "hba1c": 8.0,
+      "egfr": 39,
+      "bmi": 30.1,
+      "systolic_bp": 130,
+      "fasting_glucose": 158,
+      "weight": 79
+    },
+    "pregnant": false,
+    "notes": "No prior MI or stroke."
+  },
+  {
+    "id": "P042",
+    "age": 62,
+    "sex": "M",
+    "conditions": [
+      "Type 2 diabetes mellitus",
+      "Hypertension",
+      "Chronic kidney disease stage 3a"
+    ],
+    "medications": [
+      "Metformin",
+      "Amlodipine"
+    ],
+    "labs": {
+      "hba1c": 7.9,
+      "egfr": 52,
+      "bmi": 31.0,
+      "systolic_bp": 186,
+      "fasting_glucose": 150,
+      "weight": 94
+    },
+    "pregnant": false,
+    "notes": "Myocardial infarction 3 years ago, no events since. Home blood pressure readings elevated."
+  },
+  {
+    "id": "P043",
+    "age": 57,
+    "sex": "F",
+    "conditions": [
+      "Type 2 diabetes mellitus"
+    ],
+    "medications": [
+      "Metformin"
+    ],
+    "labs": {
+      "egfr": 76,
+      "bmi": 33.0,
+      "systolic_bp": 132,
+      "fasting_glucose": 172,
+      "weight": 88
+    },
+    "pregnant": false,
+    "notes": "History of myocardial infarction, date not recorded."
+  },
+  {
+    "id": "P044",
+    "age": 55,
+    "sex": "F",
+    "conditions": [
+      "Hypothyroidism"
+    ],
+    "medications": [],
+    "labs": {
+      "hba1c": 6.2,
+      "egfr": 115,
+      "bmi": 28.3,
+      "systolic_bp": 137,
+      "fasting_glucose": 102,
+      "weight": 51.7
+    },
+    "pregnant": false,
+    "notes": "Adherent to current medication."
+  },
+  {
+    "id": "P045",
+    "age": 25,
+    "sex": "F",
+    "conditions": [
+      "Type 2 diabetes mellitus",
+      "Hypertension"
+    ],
+    "medications": [
+      "Metformin",
+      "Amlodipine"
+    ],
+    "labs": {
+      "hba1c": 10.7,
+      "egfr": 41,
+      "bmi": 31.9,
+      "systolic_bp": 160,
+      "fasting_glucose": 281,
+      "weight": 80.8
+    },
+    "pregnant": false,
+    "notes": "No prior myocardial infarction. Adherent to current medication."
+  },
+  {
+    "id": "P046",
+    "age": 61,
+    "sex": "M",
+    "conditions": [
+      "Type 2 diabetes mellitus"
+    ],
+    "medications": [
+      "Metformin"
+    ],
+    "labs": {
+      "hba1c": 8.6,
+      "egfr": 38,
+      "bmi": 35.8,
+      "systolic_bp": 110,
+      "fasting_glucose": 125,
+      "weight": 74.2
+    },
+    "pregnant": false,
+    "notes": "No prior myocardial infarction. Adherent to current medication."
+  },
+  {
+    "id": "P047",
+    "age": 25,
+    "sex": "F",
+    "conditions": [
+      "Hypertension"
+    ],
+    "medications": [
+      "Losartan"
+    ],
+    "labs": {
+      "hba1c": 4.9,
+      "egfr": 115,
+      "bmi": 44.0,
+      "systolic_bp": 126,
+      "fasting_glucose": 79,
+      "weight": 116.1
+    },
+    "pregnant": false,
+    "notes": "Reports good exercise tolerance."
+  },
+  {
+    "id": "P048",
+    "age": 64,
+    "sex": "F",
+    "conditions": [
+      "Hyperlipidemia"
+    ],
+    "medications": [],
+    "labs": {
+      "hba1c": 6.2,
+      "egfr": 65,
+      "bmi": 42.2,
+      "systolic_bp": 133,
+      "fasting_glucose": 92,
+      "weight": 75.8
+    },
+    "pregnant": false,
+    "notes": "Reports good exercise tolerance."
+  },
+  {
+    "id": "P049",
+    "age": 43,
+    "sex": "M",
+    "conditions": [
+      "Type 2 diabetes mellitus"
+    ],
+    "medications": [
+      "Metformin"
+    ],
+    "labs": {
+      "hba1c": {
+        "value": 77,
+        "unit": "mmol/mol"
+      },
+      "egfr": 101,
+      "bmi": 20.5,
+      "systolic_bp": 124,
+      "fasting_glucose": 124,
+      "weight": 46.0
+    },
+    "pregnant": false,
+    "notes": "Denies prior heart attack or stroke. Routine follow-up visit."
+  },
+  {
+    "id": "P050",
+    "age": 67,
+    "sex": "F",
+    "conditions": [
+      "Type 2 diabetes mellitus",
+      "Hypertension"
+    ],
+    "medications": [
+      "Metformin",
+      "Insulin glargine",
+      "Ramipril"
+    ],
+    "labs": {
+      "hba1c": 9.4,
+      "egfr": 85,
+      "bmi": 35.4,
+      "systolic_bp": 191,
+      "fasting_glucose": 190,
+      "weight": 116.8
+    },
+    "pregnant": false,
+    "notes": "Myocardial infarction 7 years ago, stable since. Routine follow-up visit."
+  },
+  {
+    "id": "P051",
+    "age": 25,
+    "sex": "F",
+    "conditions": [
+      "Type 2 diabetes mellitus"
+    ],
+    "medications": [
+      "Metformin"
+    ],
+    "labs": {
+      "hba1c": 8.8,
+      "egfr": 48,
+      "bmi": 42.3,
+      "systolic_bp": 108,
+      "fasting_glucose": 172,
+      "weight": 71.6
+    },
+    "pregnant": false,
+    "notes": "Myocardial infarction 1 months ago. Seen in clinic for review."
+  },
+  {
+    "id": "P052",
+    "age": 33,
+    "sex": "F",
+    "conditions": [
+      "Hypertension",
+      "Heart failure"
+    ],
+    "medications": [
+      "Losartan",
+      "Spironolactone"
+    ],
+    "labs": {
+      "hba1c": 5.6,
+      "egfr": 66,
+      "bmi": 26.0,
+      "systolic_bp": 151,
+      "fasting_glucose": 95,
+      "weight": 58.3
+    },
+    "pregnant": false,
+    "notes": "Routine follow-up visit."
+  },
+  {
+    "id": "P053",
+    "age": 51,
+    "sex": "M",
+    "conditions": [
+      "Type 2 diabetes mellitus"
+    ],
+    "medications": [
+      "Metformin",
+      "Insulin glargine"
+    ],
+    "labs": {
+      "hba1c": {
+        "value": 62,
+        "unit": "mmol/mol"
+      },
+      "egfr": 48,
+      "bmi": 34.9,
+      "systolic_bp": 120,
+      "fasting_glucose": 151,
+      "weight": {
+        "value": 223,
+        "unit": "lb"
+      }
+    },
+    "pregnant": false,
+    "notes": "History of myocardial infarction, date not recorded. Adherent to current medication."
+  },
+  {
+    "id": "P054",
+    "age": 63,
+    "sex": "F",
+    "conditions": [
+      "Breast cancer",
+      "HER2-positive"
+    ],
+    "medications": [
+      "Trastuzumab",
+      "Doxorubicin"
+    ],
+    "labs": {
+      "hba1c": 5.0,
+      "egfr": 71,
+      "bmi": 28.1,
+      "systolic_bp": 106,
+      "fasting_glucose": {
+        "value": 5.3,
+        "unit": "mmol/L"
+      },
+      "weight": 58.8
+    },
+    "pregnant": false,
+    "notes": "Reports good exercise tolerance."
+  },
+  {
+    "id": "P055",
+    "age": 46,
+    "sex": "F",
+    "conditions": [
+      "Asthma"
+    ],
+    "medications": [],
+    "labs": {
+      "hba1c": 6.2,
+      "egfr": 54,
+      "bmi": 41.0,
+      "systolic_bp": 105,
+      "fasting_glucose": 85,
+      "weight": 100.9
+    },
+    "pregnant": false,
+    "notes": "Adherent to current medication."
+  },
+  {
+    "id": "P056",
+    "age": 64,
+    "sex": "F",
+    "conditions": [
+      "Hypertension"
+    ],
+    "medications": [
+      "Amlodipine"
+    ],
+    "labs": {
+      "hba1c": 5.9,
+      "egfr": 90,
+      "bmi": 27.7,
+      "systolic_bp": 154,
+      "fasting_glucose": 88,
+      "weight": 43.9
+    },
+    "pregnant": false,
+    "notes": "Lives independently."
+  },
+  {
+    "id": "P057",
+    "age": 84,
+    "sex": "M",
+    "conditions": [
+      "Chronic kidney disease"
+    ],
+    "medications": [],
+    "labs": {
+      "hba1c": 4.8,
+      "egfr": 66,
+      "bmi": 43.3,
+      "systolic_bp": 115,
+      "fasting_glucose": 90,
+      "weight": 45.1
+    },
+    "pregnant": false,
+    "notes": "Not on dialysis. Seen in clinic for review."
+  },
+  {
+    "id": "P058",
+    "age": 48,
+    "sex": "F",
+    "conditions": [
+      "Type 2 diabetes mellitus"
+    ],
+    "medications": [
+      "Metformin",
+      "Insulin glargine"
+    ],
+    "labs": {
+      "hba1c": {
+        "value": 68,
+        "unit": "mmol/mol"
+      },
+      "egfr": 98,
+      "bmi": 42.1,
+      "systolic_bp": 138,
+      "fasting_glucose": 285,
+      "weight": 99.6
+    },
+    "pregnant": false,
+    "notes": "Myocardial infarction 3 months ago. Seen in clinic for review."
+  },
+  {
+    "id": "P059",
+    "age": 54,
+    "sex": "F",
+    "conditions": [
+      "Hypertension"
+    ],
+    "medications": [
+      "Ramipril"
+    ],
+    "labs": {
+      "hba1c": 5.4,
+      "egfr": 69,
+      "bmi": 32.9,
+      "systolic_bp": 149,
+      "fasting_glucose": 100,
+      "weight": 95.2
+    },
+    "pregnant": false,
+    "notes": "Seen in clinic for review."
+  },
+  {
+    "id": "P060",
+    "age": 54,
+    "sex": "F",
+    "conditions": [
+      "Hypertension"
+    ],
+    "medications": [
+      "Losartan"
+    ],
+    "labs": {
+      "hba1c": 5.6,
+      "egfr": 73,
+      "bmi": 30.6,
+      "systolic_bp": 181,
+      "fasting_glucose": 87,
+      "weight": 82.9
+    },
+    "pregnant": false,
+    "notes": "Routine follow-up visit."
+  },
+  {
+    "id": "P061",
+    "age": 27,
+    "sex": "M",
+    "conditions": [
+      "Hypertension"
+    ],
+    "medications": [
+      "Amlodipine"
+    ],
+    "labs": {
+      "hba1c": 5.1,
+      "egfr": 35,
+      "bmi": 20.2,
+      "systolic_bp": 185,
+      "fasting_glucose": 78,
+      "weight": 78.4
+    },
+    "pregnant": false,
+    "notes": "Reports good exercise tolerance."
+  },
+  {
+    "id": "P062",
+    "age": 47,
+    "sex": "F",
+    "conditions": [
+      "Breast cancer",
+      "HER2-positive"
+    ],
+    "medications": [
+      "Trastuzumab"
+    ],
+    "labs": {
+      "hba1c": 6.0,
+      "egfr": 45,
+      "bmi": 38.5,
+      "systolic_bp": 118,
+      "fasting_glucose": 85,
+      "weight": 106.3
+    },
+    "pregnant": false,
+    "notes": "Routine follow-up visit."
+  },
+  {
+    "id": "P063",
+    "age": 75,
+    "sex": "F",
+    "conditions": [
+      "Breast cancer",
+      "HER2-negative"
+    ],
+    "medications": [
+      "Letrozole"
+    ],
+    "labs": {
+      "hba1c": 5.6,
+      "egfr": 88,
+      "bmi": 34.3,
+      "systolic_bp": 136,
+      "fasting_glucose": 101,
+      "weight": 108.4
+    },
+    "pregnant": false,
+    "notes": "No brain metastases on staging MRI. Lives independently."
+  },
+  {
+    "id": "P064",
+    "age": 82,
+    "sex": "M",
+    "conditions": [
+      "Type 2 diabetes mellitus",
+      "Chronic kidney disease"
+    ],
+    "medications": [
+      "Metformin"
+    ],
+    "labs": {
+      "hba1c": 8.4,
+      "egfr": 55,
+      "bmi": 26.1,
+      "systolic_bp": 121,
+      "fasting_glucose": 195,
+      "weight": 67.6
+    },
+    "pregnant": false,
+    "notes": "Myocardial infarction 8 years ago, stable since. Not on dialysis. Reports good exercise tolerance."
+  },
+  {
+    "id": "P065",
+    "age": 69,
+    "sex": "F",
+    "conditions": [
+      "Chronic kidney disease"
+    ],
+    "medications": [],
+    "labs": {
+      "hba1c": 5.9,
+      "egfr": 70,
+      "bmi": 36.4,
+      "systolic_bp": 140,
+      "fasting_glucose": 98,
+      "weight": 80.2
+    },
+    "pregnant": false,
+    "notes": "Reports good exercise tolerance."
+  },
+  {
+    "id": "P066",
+    "age": 85,
+    "sex": "F",
+    "conditions": [
+      "Breast cancer",
+      "HER2-negative"
+    ],
+    "medications": [
+      "Letrozole"
+    ],
+    "labs": {
+      "hba1c": 5.5,
+      "egfr": 66,
+      "bmi": 29.9,
+      "systolic_bp": 105,
+      "fasting_glucose": 98,
+      "weight": 68.9
+    },
+    "pregnant": false,
+    "notes": "No brain metastases on staging MRI. Adherent to current medication."
+  },
+  {
+    "id": "P067",
+    "age": 66,
+    "sex": "F",
+    "conditions": [
+      "Hyperlipidemia"
+    ],
+    "medications": [],
+    "labs": {
+      "hba1c": 4.9,
+      "egfr": 86,
+      "bmi": 22.4,
+      "systolic_bp": 133,
+      "fasting_glucose": 85,
+      "weight": 46.0
+    },
+    "pregnant": false,
+    "notes": "Reports good exercise tolerance."
+  },
+  {
+    "id": "P068",
+    "age": 48,
+    "sex": "M",
+    "conditions": [
+      "Hypertension"
+    ],
+    "medications": [
+      "Amlodipine"
+    ],
+    "labs": {
+      "hba1c": 4.9,
+      "egfr": 76,
+      "bmi": 24.6,
+      "systolic_bp": 133,
+      "fasting_glucose": 76,
+      "weight": {
+        "value": 226,
+        "unit": "lb"
+      }
+    },
+    "pregnant": false,
+    "notes": "Adherent to current medication."
+  },
+  {
+    "id": "P069",
+    "age": 30,
+    "sex": "M",
+    "conditions": [
+      "Hypertension"
+    ],
+    "medications": [
+      "Ramipril"
+    ],
+    "labs": {
+      "hba1c": 5.2,
+      "egfr": 79,
+      "bmi": 23.2,
+      "systolic_bp": 139,
+      "fasting_glucose": {
+        "value": 4.7,
+        "unit": "mmol/L"
+      },
+      "weight": 119.2
+    },
+    "pregnant": false,
+    "notes": "Reports good exercise tolerance."
+  },
+  {
+    "id": "P070",
+    "age": 25,
+    "sex": "F",
+    "conditions": [
+      "Chronic kidney disease"
+    ],
+    "medications": [],
+    "labs": {
+      "hba1c": 6.0,
+      "egfr": 25,
+      "bmi": 21.5,
+      "systolic_bp": 123,
+      "fasting_glucose": {
+        "value": 4.5,
+        "unit": "mmol/L"
+      },
+      "weight": 105.7
+    },
+    "pregnant": false,
+    "notes": "Not on dialysis. Lives independently."
+  },
+  {
+    "id": "P071",
+    "age": 78,
+    "sex": "M",
+    "conditions": [
+      "Type 2 diabetes mellitus"
+    ],
+    "medications": [
+      "Metformin",
+      "Insulin glargine"
+    ],
+    "labs": {
+      "hba1c": 11.3,
+      "egfr": 113,
+      "bmi": 41.3,
+      "systolic_bp": 133,
+      "fasting_glucose": 291,
+      "weight": 54.2
+    },
+    "pregnant": false,
+    "notes": "Reports good exercise tolerance."
+  },
+  {
+    "id": "P072",
+    "age": 50,
+    "sex": "F",
+    "conditions": [
+      "Breast cancer",
+      "HER2-positive"
+    ],
+    "medications": [
+      "Trastuzumab"
+    ],
+    "labs": {
+      "hba1c": 6.1,
+      "egfr": 67,
+      "bmi": 41.0,
+      "systolic_bp": 119,
+      "fasting_glucose": 103,
+      "weight": 87.6
+    },
+    "pregnant": false,
+    "notes": "No brain metastases on staging MRI. Reports good exercise tolerance."
+  },
+  {
+    "id": "P073",
+    "age": 59,
+    "sex": "M",
+    "conditions": [
+      "Hypertension"
+    ],
+    "medications": [
+      "Losartan"
+    ],
+    "labs": {
+      "hba1c": 5.2,
+      "egfr": 33,
+      "bmi": 31.9,
+      "systolic_bp": 149,
+      "fasting_glucose": 79,
+      "weight": 61.3
+    },
+    "pregnant": false,
+    "notes": "Reports good exercise tolerance."
+  },
+  {
+    "id": "P074",
+    "age": 73,
+    "sex": "M",
+    "conditions": [
+      "Type 2 diabetes mellitus",
+      "Hypertension"
+    ],
+    "medications": [
+      "Metformin",
+      "Amlodipine"
+    ],
+    "labs": {
+      "hba1c": 7.3,
+      "egfr": 116,
+      "bmi": 33.5,
+      "systolic_bp": 185,
+      "fasting_glucose": 251,
+      "weight": 84.5
+    },
+    "pregnant": false,
+    "notes": "No MI or stroke. Adherent to current medication."
+  },
+  {
+    "id": "P075",
+    "age": 56,
+    "sex": "F",
+    "conditions": [
+      "Type 2 diabetes mellitus"
+    ],
+    "medications": [
+      "Metformin",
+      "Insulin glargine"
+    ],
+    "labs": {
+      "hba1c": 8.9,
+      "egfr": 55,
+      "bmi": 23.8,
+      "systolic_bp": 134,
+      "fasting_glucose": 180,
+      "weight": 100.0
+    },
+    "pregnant": false,
+    "notes": "Denies prior heart attack or stroke. Lives independently."
+  },
+  {
+    "id": "P076",
+    "age": 84,
+    "sex": "F",
+    "conditions": [
+      "Type 2 diabetes mellitus"
+    ],
+    "medications": [
+      "Metformin",
+      "Insulin glargine"
+    ],
+    "labs": {
+      "hba1c": 6.3,
+      "egfr": 38,
+      "bmi": 32.8,
+      "systolic_bp": 112,
+      "fasting_glucose": 273,
+      "weight": 111.5
+    },
+    "pregnant": false,
+    "notes": "Denies prior heart attack or stroke. Routine follow-up visit."
+  },
+  {
+    "id": "P077",
+    "age": 30,
+    "sex": "M",
+    "conditions": [
+      "Hypertension",
+      "Heart failure"
+    ],
+    "medications": [
+      "Amlodipine"
+    ],
+    "labs": {
+      "hba1c": 5.7,
+      "egfr": 38,
+      "bmi": 22.8,
+      "systolic_bp": 163,
+      "fasting_glucose": 79,
+      "weight": 121.5
+    },
+    "pregnant": false,
+    "notes": "Seen in clinic for review."
+  },
+  {
+    "id": "P078",
+    "age": 73,
+    "sex": "M",
+    "conditions": [
+      "Hypertension"
+    ],
+    "medications": [
+      "Losartan"
+    ],
+    "labs": {
+      "hba1c": 5.4,
+      "egfr": 104,
+      "bmi": 34.5,
+      "systolic_bp": 137,
+      "fasting_glucose": {
+        "value": 4.8,
+        "unit": "mmol/L"
+      },
+      "weight": 92.0
+    },
+    "pregnant": false,
+    "notes": "Seen in clinic for review."
+  },
+  {
+    "id": "P079",
+    "age": 68,
+    "sex": "F",
+    "conditions": [
+      "Type 2 diabetes mellitus"
+    ],
+    "medications": [
+      "Metformin"
+    ],
+    "labs": {
+      "hba1c": 9.3,
+      "egfr": 69,
+      "bmi": 19.8,
+      "systolic_bp": 122,
+      "fasting_glucose": {
+        "value": 16.1,
+        "unit": "mmol/L"
+      },
+      "weight": 64.6
+    },
+    "pregnant": false,
+    "notes": "Myocardial infarction 14 months ago, stable since. Reports good exercise tolerance."
+  },
+  {
+    "id": "P080",
+    "age": 35,
+    "sex": "F",
+    "conditions": [
+      "Type 2 diabetes mellitus"
+    ],
+    "medications": [
+      "Metformin"
+    ],
+    "labs": {
+      "hba1c": 10.5,
+      "egfr": 41,
+      "bmi": 20.5,
+      "systolic_bp": 123,
+      "fasting_glucose": 262,
+      "weight": 101.9
+    },
+    "pregnant": false,
+    "notes": "Seen in clinic for review."
+  },
+  {
+    "id": "P081",
+    "age": 72,
+    "sex": "F",
+    "conditions": [
+      "Breast cancer",
+      "HER2-positive"
+    ],
+    "medications": [
+      "Trastuzumab",
+      "Doxorubicin"
+    ],
+    "labs": {
+      "hba1c": 5.4,
+      "egfr": 73,
+      "bmi": 34.1,
+      "systolic_bp": 105,
+      "fasting_glucose": 79,
+      "weight": 60.3
+    },
+    "pregnant": false,
+    "notes": "No brain metastases on staging MRI. Lives independently."
+  },
+  {
+    "id": "P082",
+    "age": 76,
+    "sex": "F",
+    "conditions": [
+      "Type 2 diabetes mellitus",
+      "Hypertension"
+    ],
+    "medications": [
+      "Metformin",
+      "Losartan"
+    ],
+    "labs": {
+      "hba1c": 9.2,
+      "egfr": 113,
+      "bmi": 39.4,
+      "systolic_bp": 136,
+      "fasting_glucose": 230,
+      "weight": 69.8
+    },
+    "pregnant": false,
+    "notes": "Myocardial infarction 8 years ago, stable since. Seen in clinic for review."
+  },
+  {
+    "id": "P083",
+    "age": 56,
+    "sex": "F",
+    "conditions": [
+      "Type 2 diabetes mellitus"
+    ],
+    "medications": [
+      "Metformin"
+    ],
+    "labs": {
+      "hba1c": 6.6,
+      "egfr": 83,
+      "bmi": 40.6,
+      "systolic_bp": 104,
+      "fasting_glucose": {
+        "value": 15.4,
+        "unit": "mmol/L"
+      },
+      "weight": 111.5
+    },
+    "pregnant": false,
+    "notes": "No prior myocardial infarction. Routine follow-up visit."
+  },
+  {
+    "id": "P084",
+    "age": 52,
+    "sex": "F",
+    "conditions": [
+      "Hypertension"
+    ],
+    "medications": [
+      "Losartan"
+    ],
+    "labs": {
+      "hba1c": 4.8,
+      "bmi": 34.2,
+      "systolic_bp": 155,
+      "fasting_glucose": {
+        "value": 4.7,
+        "unit": "mmol/L"
+      },
+      "weight": 66.9
+    },
+    "pregnant": false,
+    "notes": "Routine follow-up visit."
+  },
+  {
+    "id": "P085",
+    "age": 31,
+    "sex": "F",
+    "conditions": [
+      "Breast cancer",
+      "HER2-negative"
+    ],
+    "medications": [
+      "Letrozole",
+      "Doxorubicin"
+    ],
+    "labs": {
+      "hba1c": 6.1,
+      "egfr": 69,
+      "bmi": 31.7,
+      "systolic_bp": 121,
+      "fasting_glucose": 100,
+      "weight": 108.8
+    },
+    "pregnant": false,
+    "notes": "Seen in clinic for review."
+  },
+  {
+    "id": "P086",
+    "age": 24,
+    "sex": "F",
+    "conditions": [
+      "Type 2 diabetes mellitus",
+      "Chronic kidney disease"
+    ],
+    "medications": [
+      "Metformin"
+    ],
+    "labs": {
+      "hba1c": 8.3,
+      "egfr": 69,
+      "bmi": 38.7,
+      "systolic_bp": 121,
+      "fasting_glucose": 110,
+      "weight": 64.6
+    },
+    "pregnant": false,
+    "notes": "Patient reports she is currently 14 weeks pregnant. No MI or stroke. Not on dialysis. Seen in clinic for review."
+  },
+  {
+    "id": "P087",
+    "age": 40,
+    "sex": "M",
+    "conditions": [
+      "Chronic kidney disease"
+    ],
+    "medications": [],
+    "labs": {
+      "hba1c": 5.1,
+      "egfr": 34,
+      "bmi": 24.8,
+      "systolic_bp": 130,
+      "fasting_glucose": 76,
+      "weight": 67.5
+    },
+    "pregnant": false,
+    "notes": "Adherent to current medication."
+  },
+  {
+    "id": "P088",
+    "age": 20,
+    "sex": "F",
+    "conditions": [
+      "Breast cancer",
+      "HER2-positive"
+    ],
+    "medications": [
+      "Trastuzumab"
+    ],
+    "labs": {
+      "hba1c": 5.3,
+      "egfr": 44,
+      "bmi": 40.9,
+      "systolic_bp": 132,
+      "fasting_glucose": 80,
+      "weight": 84.1
+    },
+    "pregnant": false,
+    "notes": "No brain metastases on staging MRI. Reports good exercise tolerance."
+  },
+  {
+    "id": "P089",
+    "age": 59,
+    "sex": "M",
+    "conditions": [
+      "Hypertension",
+      "Chronic kidney disease"
+    ],
+    "medications": [
+      "Ramipril"
+    ],
+    "labs": {
+      "egfr": 64,
+      "bmi": 32.3,
+      "systolic_bp": 165,
+      "fasting_glucose": 105,
+      "weight": 111.8
+    },
+    "pregnant": false,
+    "notes": "Not on dialysis. Adherent to current medication."
+  },
+  {
+    "id": "P090",
+    "age": 28,
+    "sex": "M",
+    "conditions": [
+      "Type 2 diabetes mellitus",
+      "Chronic kidney disease"
+    ],
+    "medications": [
+      "Metformin"
+    ],
+    "labs": {
+      "hba1c": 6.6,
+      "egfr": 20,
+      "bmi": 150,
+      "systolic_bp": 105,
+      "fasting_glucose": 121,
+      "weight": 67.9
+    },
+    "pregnant": false,
+    "notes": "Myocardial infarction 2 months ago. Not on dialysis. Routine follow-up visit."
+  },
+  {
+    "id": "P091",
+    "age": 46,
+    "sex": "M",
+    "conditions": [
+      "Type 2 diabetes mellitus",
+      "Hypertension"
+    ],
+    "medications": [
+      "Metformin",
+      "Ramipril",
+      "Spironolactone"
+    ],
+    "labs": {
+      "hba1c": 7.4,
+      "egfr": 64,
+      "bmi": 35.7,
+      "systolic_bp": 184,
+      "fasting_glucose": 183,
+      "weight": 96.2
+    },
+    "pregnant": false,
+    "notes": "Myocardial infarction 4 months ago. Lives independently."
+  },
+  {
+    "id": "P092",
+    "age": 54,
+    "sex": "F",
+    "conditions": [
+      "Breast cancer",
+      "HER2-positive"
+    ],
+    "medications": [
+      "Trastuzumab"
+    ],
+    "labs": {
+      "hba1c": 5.5,
+      "egfr": 62,
+      "bmi": 28.5,
+      "systolic_bp": 126,
+      "fasting_glucose": 92,
+      "weight": 121.4
+    },
+    "pregnant": false,
+    "notes": "No brain metastases on staging MRI. Seen in clinic for review."
+  },
+  {
+    "id": "P093",
+    "age": 79,
+    "sex": "F",
+    "conditions": [
+      "Hypertension",
+      "Chronic kidney disease"
+    ],
+    "medications": [
+      "Losartan"
+    ],
+    "labs": {
+      "hba1c": 5.1,
+      "egfr": 22,
+      "bmi": 34.5,
+      "systolic_bp": 142,
+      "fasting_glucose": 80,
+      "weight": 114.3
+    },
+    "pregnant": false,
+    "notes": "Not on dialysis. Adherent to current medication."
+  },
+  {
+    "id": "P094",
+    "age": 57,
+    "sex": "M",
+    "conditions": [
+      "Type 2 diabetes mellitus"
+    ],
+    "medications": [
+      "Metformin"
+    ],
+    "labs": {
+      "hba1c": 7.0,
+      "egfr": 48,
+      "bmi": 38.7,
+      "systolic_bp": 127,
+      "fasting_glucose": 245,
+      "weight": 82.1
+    },
+    "pregnant": false,
+    "notes": "Lives independently."
+  },
+  {
+    "id": "P095",
+    "age": 30,
+    "sex": "M",
+    "conditions": [
+      "Type 2 diabetes mellitus",
+      "Chronic kidney disease"
+    ],
+    "medications": [
+      "Metformin"
+    ],
+    "labs": {
+      "hba1c": 10.1,
+      "egfr": 24,
+      "bmi": 40.5,
+      "systolic_bp": 129,
+      "fasting_glucose": {
+        "value": 14.0,
+        "unit": "mmol/L"
+      },
+      "weight": 71.3
+    },
+    "pregnant": false,
+    "notes": "Myocardial infarction 26 months ago, stable since. Not on dialysis. Lives independently."
+  },
+  {
+    "id": "P096",
+    "age": 76,
+    "sex": "F",
+    "conditions": [
+      "Type 2 diabetes mellitus"
+    ],
+    "medications": [
+      "Metformin",
+      "Insulin glargine"
+    ],
+    "labs": {
+      "hba1c": 10.9,
+      "egfr": 103,
+      "bmi": 27.2,
+      "systolic_bp": 118,
+      "fasting_glucose": 275,
+      "weight": 47.1
+    },
+    "pregnant": false,
+    "notes": "No history of myocardial infarction or stroke. Lives independently."
+  },
+  {
+    "id": "P097",
+    "age": 28,
+    "sex": "F",
+    "conditions": [
+      "Asthma"
+    ],
+    "medications": [],
+    "labs": {
+      "hba1c": 6.0,
+      "egfr": 49,
+      "bmi": 28.7,
+      "systolic_bp": 127,
+      "fasting_glucose": 100,
+      "weight": 89.0
+    },
+    "pregnant": false,
+    "notes": "Seen in clinic for review."
+  },
+  {
+    "id": "P098",
+    "age": 20,
+    "sex": "M",
+    "conditions": [
+      "Chronic kidney disease"
+    ],
+    "medications": [],
+    "labs": {
+      "hba1c": 5.1,
+      "egfr": 38,
+      "bmi": 42.8,
+      "systolic_bp": 127,
+      "fasting_glucose": 80,
+      "weight": 120.5
+    },
+    "pregnant": false,
+    "notes": "Not on dialysis. Lives independently."
+  },
+  {
+    "id": "P099",
+    "age": 74,
+    "sex": "F",
+    "conditions": [
+      "Hypertension"
+    ],
+    "medications": [
+      "Amlodipine"
+    ],
+    "labs": {
+      "hba1c": 5.6,
+      "egfr": 34,
+      "bmi": 20.3,
+      "systolic_bp": 167,
+      "fasting_glucose": 89,
+      "weight": 121.1
+    },
+    "pregnant": false,
+    "notes": "Seen in clinic for review."
+  },
+  {
+    "id": "P100",
+    "age": 45,
+    "sex": "F",
+    "conditions": [
+      "Hypertension"
+    ],
+    "medications": [
+      "Losartan"
+    ],
+    "labs": {
+      "hba1c": 5.6,
+      "egfr": 67,
+      "bmi": 40.5,
+      "systolic_bp": 143,
+      "fasting_glucose": {
+        "value": 4.6,
+        "unit": "mmol/L"
+      },
+      "weight": 85.2
+    },
+    "pregnant": false,
+    "notes": "Patient reports she is currently 11 weeks pregnant. Adherent to current medication."
+  },
+  {
+    "id": "P101",
+    "age": 38,
+    "sex": "F",
+    "conditions": [
+      "Type 2 diabetes mellitus",
+      "Hypertension"
+    ],
+    "medications": [
+      "Metformin",
+      "Amlodipine"
+    ],
+    "labs": {
+      "hba1c": 10.1,
+      "egfr": 92,
+      "bmi": 30.2,
+      "systolic_bp": 171,
+      "fasting_glucose": 241,
+      "weight": 89.5
+    },
+    "pregnant": false,
+    "notes": "Myocardial infarction 3 months ago. Reports good exercise tolerance."
+  },
+  {
+    "id": "P102",
+    "age": 23,
+    "sex": "F",
+    "conditions": [
+      "Type 2 diabetes mellitus",
+      "Hypertension",
+      "Heart failure"
+    ],
+    "medications": [
+      "Metformin",
+      "Losartan"
+    ],
+    "labs": {
+      "hba1c": 9.9,
+      "egfr": 88,
+      "bmi": 150,
+      "systolic_bp": 135,
+      "fasting_glucose": 192,
+      "weight": 90.7
+    },
+    "pregnant": false,
+    "notes": "Myocardial infarction 3 months ago. Reports good exercise tolerance."
+  },
+  {
+    "id": "P103",
+    "age": 71,
+    "sex": "F",
+    "conditions": [
+      "Breast cancer",
+      "HER2-positive"
+    ],
+    "medications": [
+      "Trastuzumab"
+    ],
+    "labs": {
+      "hba1c": 6.0,
+      "egfr": 115,
+      "bmi": 40.9,
+      "systolic_bp": 139,
+      "fasting_glucose": 87,
+      "weight": 76.4
+    },
+    "pregnant": false,
+    "notes": "No brain metastases on staging MRI. Routine follow-up visit."
+  },
+  {
+    "id": "P104",
+    "age": 48,
+    "sex": "M",
+    "conditions": [
+      "Hypertension"
+    ],
+    "medications": [
+      "Losartan"
+    ],
+    "labs": {
+      "hba1c": 5.5,
+      "egfr": 43,
+      "bmi": 39.8,
+      "systolic_bp": 136,
+      "fasting_glucose": 101,
+      "weight": 49.7
+    },
+    "pregnant": false,
+    "notes": "Seen in clinic for review."
+  },
+  {
+    "id": "P105",
+    "age": 31,
+    "sex": "M",
+    "conditions": [
+      "Hypothyroidism"
+    ],
+    "medications": [],
+    "labs": {
+      "hba1c": 5.3,
+      "egfr": 117,
+      "bmi": 42.5,
+      "systolic_bp": 131,
+      "fasting_glucose": 77,
+      "weight": 119.5
+    },
+    "pregnant": false,
+    "notes": "Adherent to current medication."
+  },
+  {
+    "id": "P106",
+    "age": 44,
+    "sex": "M",
+    "conditions": [
+      "Type 2 diabetes mellitus"
+    ],
+    "medications": [
+      "Metformin"
+    ],
+    "labs": {
+      "hba1c": 7.9,
+      "egfr": 103,
+      "bmi": 28.2,
+      "systolic_bp": 121,
+      "fasting_glucose": 256,
+      "weight": 60.1
+    },
+    "pregnant": false,
+    "notes": "Myocardial infarction 27 months ago, stable since. Lives independently."
+  },
+  {
+    "id": "P107",
+    "age": 55,
+    "sex": "M",
+    "conditions": [
+      "Type 2 diabetes mellitus"
+    ],
+    "medications": [
+      "Metformin"
+    ],
+    "labs": {
+      "hba1c": 7.9,
+      "egfr": 55,
+      "bmi": 40.7,
+      "systolic_bp": 140,
+      "fasting_glucose": 278,
+      "weight": {
+        "value": 163,
+        "unit": "lb"
+      }
+    },
+    "pregnant": false,
+    "notes": "No prior myocardial infarction. Reports good exercise tolerance."
+  },
+  {
+    "id": "P108",
+    "age": 55,
+    "sex": "M",
+    "conditions": [
+      "Chronic kidney disease"
+    ],
+    "medications": [],
+    "labs": {
+      "hba1c": 5.9,
+      "egfr": 46,
+      "bmi": 33.9,
+      "systolic_bp": 107,
+      "fasting_glucose": 83,
+      "weight": 54.6
+    },
+    "pregnant": false,
+    "notes": "Not on dialysis. Reports good exercise tolerance."
+  },
+  {
+    "id": "P109",
+    "age": 50,
+    "sex": "M",
+    "conditions": [
+      "Type 2 diabetes mellitus",
+      "Hypertension"
+    ],
+    "medications": [
+      "Metformin",
+      "Ramipril",
+      "Spironolactone"
+    ],
+    "labs": {
+      "hba1c": 7.6,
+      "egfr": 118,
+      "bmi": 33.8,
+      "systolic_bp": 192,
+      "fasting_glucose": 280,
+      "weight": {
+        "value": 147,
+        "unit": "lb"
+      }
+    },
+    "pregnant": false,
+    "notes": "Adherent to current medication."
+  },
+  {
+    "id": "P110",
+    "age": 57,
+    "sex": "M",
+    "conditions": [
+      "Type 2 diabetes mellitus",
+      "Chronic kidney disease"
+    ],
+    "medications": [
+      "Metformin",
+      "Insulin glargine"
+    ],
+    "labs": {
+      "hba1c": 8.4,
+      "egfr": 18,
+      "bmi": 28.5,
+      "systolic_bp": 118,
+      "fasting_glucose": 238,
+      "weight": 86.7
+    },
+    "pregnant": false,
+    "notes": "No prior myocardial infarction. Lives independently."
+  },
+  {
+    "id": "P111",
+    "age": 69,
+    "sex": "M",
+    "conditions": [
+      "Type 2 diabetes mellitus",
+      "Hypertension"
+    ],
+    "medications": [
+      "Metformin",
+      "Losartan",
+      "Spironolactone"
+    ],
+    "labs": {
+      "hba1c": {
+        "value": 90,
+        "unit": "mmol/mol"
+      },
+      "egfr": 111,
+      "bmi": 30.5,
+      "systolic_bp": 171,
+      "fasting_glucose": 132,
+      "weight": 76.9
+    },
+    "pregnant": false,
+    "notes": "History of myocardial infarction, date not recorded. Lives independently."
+  },
+  {
+    "id": "P112",
+    "age": 25,
+    "sex": "F",
+    "conditions": [
+      "Hypertension"
+    ],
+    "medications": [
+      "Ramipril"
+    ],
+    "labs": {
+      "hba1c": 5.1,
+      "egfr": 76,
+      "bmi": 27.8,
+      "systolic_bp": 143,
+      "fasting_glucose": 89,
+      "weight": 50.2
+    },
+    "pregnant": false,
+    "notes": "Routine follow-up visit."
+  },
+  {
+    "id": "P113",
+    "age": 75,
+    "sex": "M",
+    "conditions": [
+      "Type 2 diabetes mellitus"
+    ],
+    "medications": [
+      "Metformin"
+    ],
+    "labs": {
+      "hba1c": 10.2,
+      "egfr": 89,
+      "bmi": 36.0,
+      "systolic_bp": 140,
+      "fasting_glucose": 274,
+      "weight": 92.8
+    },
+    "pregnant": false,
+    "notes": "No prior myocardial infarction. Lives independently."
+  },
+  {
+    "id": "P114",
+    "age": 61,
+    "sex": "F",
+    "conditions": [
+      "Hypertension",
+      "Chronic kidney disease",
+      "Kidney transplant"
+    ],
+    "medications": [
+      "Ramipril",
+      "Spironolactone"
+    ],
+    "labs": {
+      "hba1c": 5.3,
+      "egfr": 28,
+      "bmi": 20.9,
+      "systolic_bp": 136,
+      "fasting_glucose": 106,
+      "weight": 72.8
+    },
+    "pregnant": false,
+    "notes": "Not on dialysis. Seen in clinic for review."
+  },
+  {
+    "id": "P115",
+    "age": 76,
+    "sex": "M",
+    "conditions": [
+      "Type 2 diabetes mellitus",
+      "Hypertension"
+    ],
+    "medications": [
+      "Metformin",
+      "Amlodipine"
+    ],
+    "labs": {
+      "hba1c": 10.6,
+      "egfr": 42,
+      "bmi": 31.6,
+      "systolic_bp": 147,
+      "fasting_glucose": 120,
+      "weight": 61.8
+    },
+    "pregnant": false,
+    "notes": "No MI or stroke. Reports good exercise tolerance."
+  },
+  {
+    "id": "P116",
+    "age": 22,
+    "sex": "M",
+    "conditions": [
+      "Chronic kidney disease"
+    ],
+    "medications": [],
+    "labs": {
+      "hba1c": 5.7,
+      "egfr": 14,
+      "bmi": 27.2,
+      "systolic_bp": 139,
+      "fasting_glucose": 98,
+      "weight": 64.7
+    },
+    "pregnant": false,
+    "notes": "Lives independently."
+  },
+  {
+    "id": "P117",
+    "age": 60,
+    "sex": "F",
+    "conditions": [
+      "Type 2 diabetes mellitus"
+    ],
+    "medications": [
+      "Metformin"
+    ],
+    "labs": {
+      "hba1c": 9.6,
+      "egfr": 116,
+      "bmi": 28.8,
+      "systolic_bp": 142,
+      "fasting_glucose": 291,
+      "weight": 117.0
+    },
+    "pregnant": false,
+    "notes": "Myocardial infarction 29 months ago, stable since. Seen in clinic for review."
+  },
+  {
+    "id": "P118",
+    "age": 81,
+    "sex": "M",
+    "conditions": [
+      "Type 2 diabetes mellitus"
+    ],
+    "medications": [
+      "Metformin"
+    ],
+    "labs": {
+      "hba1c": 8.0,
+      "egfr": 55,
+      "bmi": 42.8,
+      "systolic_bp": 125,
+      "fasting_glucose": 234,
+      "weight": 57.4
+    },
+    "pregnant": false,
+    "notes": "No history of myocardial infarction or stroke. Lives independently."
+  },
+  {
+    "id": "P119",
+    "age": 64,
+    "sex": "F",
+    "conditions": [
+      "Hypertension",
+      "Chronic kidney disease"
+    ],
+    "medications": [
+      "Amlodipine"
+    ],
+    "labs": {
+      "hba1c": 5.9,
+      "egfr": 20,
+      "bmi": 37.0,
+      "systolic_bp": 130,
+      "fasting_glucose": 100,
+      "weight": 71.1
+    },
+    "pregnant": false,
+    "notes": "On hemodialysis three times weekly. Reports good exercise tolerance."
+  },
+  {
+    "id": "P120",
+    "age": 55,
+    "sex": "F",
+    "conditions": [
+      "Hypertension"
+    ],
+    "medications": [
+      "Losartan"
+    ],
+    "labs": {
+      "hba1c": 5.7,
+      "egfr": 105,
+      "bmi": 43.6,
+      "systolic_bp": 184,
+      "fasting_glucose": 92,
+      "weight": 104.2
+    },
+    "pregnant": false,
+    "notes": "Adherent to current medication."
   }
 ]

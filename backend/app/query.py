@@ -39,6 +39,13 @@ def parse_offline(q: str) -> Filter:
     for tid in trial_ids:
         if tid.lower() in low:
             f["trial_id"] = tid
+    short = re.search(r"\btrial\s*(t?\d)\b|\b(t\d)\b", low)
+    if "trial_id" not in f and short:
+        code = (short.group(1) or short.group(2)).upper()
+        code = code if code.startswith("T") else "T" + code
+        match = next((t for t in sorted(trial_ids) if t.upper().startswith(code + "-")), None)
+        if match:
+            f["trial_id"] = match
     if "trial_id" not in f:
         for word, tid in TRIAL_WORDS.items():
             if word in low and tid in trial_ids:
@@ -79,7 +86,55 @@ def to_filter(q: str) -> tuple[Filter, str]:
     return parse_offline(q), "keyword parser"
 
 
+def _why_patient(q: str, pid: str) -> Optional[dict]:
+    from .screening import opportunities
+    try:
+        opp = opportunities(pid)
+    except KeyError:
+        return None
+    rows, lines = [], []
+    tid_hint = next((t for t in {r["trial_id"] for r in opp["trials"]} if t.lower() in q.lower()), None)
+    for t in opp["trials"]:
+        if tid_hint and t["trial_id"] != tid_hint:
+            continue
+        v = t["verdict"]
+        rows.append({"patient_id": pid, "trial_id": t["trial_id"], "decision": t["decision"],
+                     "age": opp["patient"]["age"], "sex": opp["patient"]["sex"], "confidence": t["confidence"],
+                     "flags": v.get("flags", [])})
+        if t["decision"] == "NEEDS_REVIEW":
+            need = "; ".join(f"{n['impact']}: {n['request']}" for n in t["next_best_evidence"]) or "see criteria"
+            lines.append(f"{t['trial_id']} needs review. Next best evidence: {need}")
+        elif t["decision"] == "NOT_ELIGIBLE":
+            lines.append(f"{t['trial_id']} not eligible: " + "; ".join(
+                f"[{w['section']}] {w['criterion']} (observed {w['observed']})" for w in t["why_not"][:2]))
+        else:
+            lines.append(f"{t['trial_id']} eligible: all {t['total']} criteria satisfied.")
+    return {"question": q, "filter": {"patient_id": pid, **({"trial_id": tid_hint} if tid_hint else {})},
+            "parsed_by": "deterministic intent: explain patient", "answer": " ".join(lines), "rows": rows}
+
+
+def _most_failing(q: str) -> dict:
+    counts: dict[tuple, int] = {}
+    for v in db.get_verdicts():
+        for w in v.get("why_not", []):
+            key = (v["trial_id"], w["section"], w["criterion"])
+            counts[key] = counts.get(key, 0) + 1
+    top = sorted(counts.items(), key=lambda kv: -kv[1])[:8]
+    text = ("Most frequent blocking criteria: " + "; ".join(f"{t} {s} \"{c}\" ({n})" for (t, s, c), n in top)
+            if top else "No saved screening results yet. Run screening first.")
+    return {"question": q, "filter": {}, "parsed_by": "deterministic intent: failing criteria", "answer": text,
+            "rows": [], "table": [{"trial_id": t, "section": s, "criterion": c, "count": n} for (t, s, c), n in top]}
+
+
 def answer(q: str) -> dict:
+    low = q.lower()
+    pid = re.search(r"\bP\d{3}\b", q, re.I)
+    if pid and re.search(r"\bwhy\b|explain|reason", low):
+        out = _why_patient(q, pid.group(0).upper())
+        if out:
+            return out
+    if re.search(r"(most|frequent|common|often).{0,30}fail|fail.{0,30}(most|frequent|common|often)", low):
+        return _most_failing(q)
     f, by = to_filter(q)
     patients = {p.id: p for p in db.get_patients()}
     rows = []
@@ -103,6 +158,9 @@ def answer(q: str) -> dict:
                      "sex": p.sex, "confidence": v["confidence"], "flags": v.get("flags", [])})
     rows.sort(key=lambda r: (r["trial_id"], r["patient_id"]))
     applied = {k: v for k, v in f.model_dump().items() if v is not None}
-    text = (f"Found {len(rows)} result(s) matching {applied or 'no filter'}."
-            if rows else f"No saved screening results match {applied or 'the question'}. Run screening first.")
+    if rows and re.search(r"how many|count|number of", low):
+        text = f"{len(rows)} patient-trial result(s) match {applied or 'no filter'}."
+    else:
+        text = (f"Found {len(rows)} result(s) matching {applied or 'no filter'}."
+                if rows else f"No saved screening results match {applied or 'the question'}. Run screening first.")
     return {"question": q, "filter": applied, "parsed_by": by, "answer": text, "rows": rows}

@@ -31,7 +31,8 @@ DECISION_WORDS = {
 
 
 def check_note_rule(rule: Rule, patient: Patient) -> CriterionResult:
-    base = dict(rule_id=rule.id, kind=rule.kind, source_text=rule.source_text, section=rule.section)
+    base = dict(rule_id=rule.id, kind=rule.kind, source_text=rule.source_text, section=rule.section,
+                field="notes", operator=rule.operator, temporal=notes.temporal_facts(rule, patient))
     if looks_like_injection(patient.notes):
         return CriterionResult(**base, status=Status.UNKNOWN, patient_value="note flagged",
                                evaluated_by="guard", detail="possible prompt injection in note; sent to human review")
@@ -48,7 +49,8 @@ def check_note_rule(rule: Rule, patient: Patient) -> CriterionResult:
             pass
     status, evidence = notes.check_note_rule_heuristic(rule, patient)
     return CriterionResult(**base, status=status, patient_value=evidence, evaluated_by="note-reader",
-                           detail="offline negation-aware note reader")
+                           detail="offline negation-aware note reader",
+                           comparison=f"note shows criterion present = {status.value}")
 
 
 def _phrase(r: CriterionResult) -> str:

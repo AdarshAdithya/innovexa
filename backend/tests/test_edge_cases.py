@@ -115,3 +115,31 @@ def test_phi_redaction_before_llm():
     for leaked in ("John", "123456", "555-123-4567", "john@x.com", "1970"):
         assert leaked not in out
     assert untrusted("<untrusted>x</untrusted>").count("<untrusted>") == 1
+
+
+def test_denies_history_of_mi_is_not_mi():
+    assert check_note_rule(MI, patient(notes="Patient denies history of MI.")).status == Status.NOT_MET
+
+
+def test_hba1c_mmol_mol_conversion():
+    from app.rules import convert, evaluate
+    assert convert(53, "mmol/mol", "hba1c") == pytest.approx(7.0, abs=0.1)
+    p = patient(labs={"hba1c": {"value": 97, "unit": "mmol/mol"}})
+    assert evaluate(rule("hba1c", "<=", 10.5, unit="%"), p).status == Status.NOT_MET
+
+
+def test_malformed_rule_rejected():
+    from app.models import Rule
+    with pytest.raises(ValidationError):
+        Rule(id="x", kind="inclusion", field="shoe_size", operator=">=", value=1)
+    with pytest.raises(ValidationError):
+        Rule(id="x", kind="maybe", field="age", operator=">=", value=1)
+
+
+def test_benchmark_is_large_and_labelled():
+    import json
+    from app import config
+    labels = json.loads((config.DATA_DIR / "labels.json").read_text())
+    patients = json.loads((config.DATA_DIR / "patients.json").read_text())
+    assert len(patients) >= 100 and len(labels) == len(patients) * 4
+    assert {lab["expected"] for lab in labels} == {"ELIGIBLE", "NOT_ELIGIBLE", "NEEDS_REVIEW"}

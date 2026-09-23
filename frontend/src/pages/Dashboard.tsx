@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { api } from "../api";
+import { useEffect, useState } from "react";
+import { api, type Summary } from "../api";
 import type { Shared } from "../App";
 import { Button, Card } from "../components/ui";
 
@@ -12,10 +12,42 @@ function lab(v: unknown): string {
   return String(v);
 }
 
+function Kpi({ label, value, tone = "text-slate-900", hint }: { label: string; value: number | string; tone?: string; hint?: string }) {
+  return (
+    <div className="rounded-xl border border-slate-200 bg-white px-4 py-3 shadow-sm">
+      <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">{label}</p>
+      <p className={`text-3xl font-bold tabular-nums ${tone}`}>{value}</p>
+      {hint && <p className="text-[11px] text-slate-400">{hint}</p>}
+    </div>
+  );
+}
+
 export default function Dashboard({ s }: { s: Shared }) {
   const flagged = s.patients.filter((p) => p.anomaly?.outlier);
+  const [sum, setSum] = useState<Summary | null>(null);
+  useEffect(() => {
+    api.summary().then(setSum).catch(() => setSum(null));
+  }, [s.trials.length, s.patients.length]);
   return (
     <div className="space-y-4">
+      <div className="grid grid-cols-2 gap-3 md:grid-cols-4 xl:grid-cols-7">
+        <Kpi label="Patients" value={sum?.patients ?? "…"} hint="synthetic" />
+        <Kpi label="Trials" value={sum?.trials ?? "…"} />
+        <Kpi label="Eligible" value={sum?.ELIGIBLE ?? "…"} tone="text-emerald-600" hint="patient–trial pairs" />
+        <Kpi label="Not eligible" value={sum?.NOT_ELIGIBLE ?? "…"} tone="text-rose-600" />
+        <Kpi label="Needs review" value={sum?.NEEDS_REVIEW ?? "…"} tone="text-amber-600" />
+        <Kpi label="Implausible" value={sum?.implausible ?? "…"} tone="text-rose-700" hint="range guard" />
+        <Kpi label="Outliers" value={sum?.advisory_outliers ?? "…"} tone="text-amber-700" hint="advisory" />
+      </div>
+      <Card title="Guided demo">
+        <div className="flex flex-wrap items-center gap-2 text-sm">
+          <Button onClick={() => s.openPatient("P042")}>Open demo patient P042 →</Button>
+          <Button variant="ghost" onClick={() => s.openPatient("P040")}>P040 eligible</Button>
+          <Button variant="ghost" onClick={() => s.openPatient("P041")}>P041 not eligible</Button>
+          <Button variant="ghost" onClick={() => s.openPatient("P043")}>P043 needs review</Button>
+          <Button variant="ghost" onClick={() => s.openPatient("P006")}>P006 anomaly</Button>
+        </div>
+      </Card>
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         {s.trials.map((t) => (
           <Card key={t.id}>
@@ -47,7 +79,9 @@ export default function Dashboard({ s }: { s: Shared }) {
               <span className={`rounded px-2 py-0.5 text-xs font-semibold ${p.anomaly?.implausible ? "bg-rose-100 text-rose-800" : "bg-amber-100 text-amber-800"}`}>
                 {p.anomaly?.implausible ? "implausible" : "outlier"}
               </span>
-              <span className="font-medium">{p.id}</span>
+              <button onClick={() => s.openPatient(p.id)} className="font-medium underline-offset-2 hover:underline">
+                {p.id}
+              </button>
               <span className="text-slate-600">{p.anomaly?.reasons.join("; ")}</span>
               <span className="text-xs text-slate-400">score {p.anomaly?.score}</span>
             </div>
@@ -56,7 +90,7 @@ export default function Dashboard({ s }: { s: Shared }) {
       </Card>
 
       <Card title={`Patients (${s.patients.length})`}>
-        <div className="overflow-x-auto">
+        <div className="max-h-[28rem] overflow-auto">
           <table className="w-full text-left text-sm">
             <thead className="text-xs uppercase text-slate-500">
               <tr>
@@ -69,7 +103,10 @@ export default function Dashboard({ s }: { s: Shared }) {
               {s.patients.map((p) => (
                 <tr key={p.id} className="border-t border-slate-100 align-top">
                   <td className="py-1.5 pr-3 font-medium">
-                    {p.id} {p.anomaly?.outlier && <span title={p.anomaly.reasons.join("; ")}>⚠</span>}
+                    <button onClick={() => s.openPatient(p.id)} className="hover:underline">
+                      {p.id}
+                    </button>{" "}
+                    {p.anomaly?.outlier && <span title={p.anomaly.reasons.join("; ")}>⚠</span>}
                   </td>
                   <td className="py-1.5 pr-3">{p.age ?? "—"}</td>
                   <td className="py-1.5 pr-3">{p.sex}</td>

@@ -83,9 +83,16 @@ def _compare(a: float, op: str, b: float) -> bool:
     return {">=": a >= b, "<=": a <= b, ">": a > b, "<": a < b, "==": a == b, "!=": a != b}[op]
 
 
-def _result(rule: Rule, status: Status, value: Any = None, detail: str = "") -> CriterionResult:
+def _result(rule: Rule, status: Status, value: Any = None, detail: str = "", **extra) -> CriterionResult:
+    base = dict(field=rule.field, operator=rule.operator, threshold=None if rule.field == "group" else rule.value,
+                unit=rule.unit)
+    base.update(extra)
     return CriterionResult(rule_id=rule.id, kind=rule.kind, source_text=rule.source_text, section=rule.section,
-                           status=status, patient_value=value, evaluated_by="rules", detail=detail)
+                           status=status, patient_value=value, evaluated_by="rules", detail=detail, **base)
+
+
+def _tf(ok: bool) -> str:
+    return "TRUE" if ok else "FALSE"
 
 
 def evaluate(rule: Rule, patient: Patient) -> CriterionResult:
@@ -116,7 +123,8 @@ def evaluate(rule: Rule, patient: Patient) -> CriterionResult:
             status = Status.NOT_MET if found else Status.MET
         else:
             return _result(rule, Status.UNKNOWN, items, f"operator {op} not valid for {field}")
-        return _result(rule, status, items or "none recorded")
+        cmp = f'"{rule.value}" {"in" if op == "contains" else "not in"} {field} = {_tf(status == Status.MET)}'
+        return _result(rule, status, items or "none recorded", observed=items, comparison=cmp)
 
     if field == "sex":
         if not patient.sex:
@@ -124,7 +132,8 @@ def evaluate(rule: Rule, patient: Patient) -> CriterionResult:
         pv = patient.sex[0].upper()
         rv = str(rule.value)[0].upper()
         ok = (pv == rv) if op == "==" else (pv != rv)
-        return _result(rule, Status.MET if ok else Status.NOT_MET, pv)
+        return _result(rule, Status.MET if ok else Status.NOT_MET, pv, observed=pv,
+                       comparison=f"sex {pv} {op} {rv} = {_tf(ok)}")
 
     if field == "pregnant":
         preg = patient.pregnant
@@ -134,7 +143,8 @@ def evaluate(rule: Rule, patient: Patient) -> CriterionResult:
             return _result(rule, Status.UNKNOWN, None, "pregnancy status missing")
         target = _truthy(rule.value)
         ok = (preg == target) if op == "==" else (preg != target)
-        return _result(rule, Status.MET if ok else Status.NOT_MET, preg)
+        return _result(rule, Status.MET if ok else Status.NOT_MET, preg, observed=preg,
+                       comparison=f"pregnant {preg} {op} {target} = {_tf(ok)}")
 
     if field == "age":
         if patient.age is None:
@@ -161,7 +171,10 @@ def _numeric(rule: Rule, value: float, unit: Optional[str], field: str) -> Crite
     if unit and _norm_unit(unit) != _norm_unit(CANONICAL_UNITS.get(field)):
         shown = f"{shown} (= {canon:.1f} {CANONICAL_UNITS.get(field)})"
     ok = _compare(round(canon, 6), rule.operator, round(target, 6))
-    return _result(rule, Status.MET if ok else Status.NOT_MET, shown)
+    cu = "" if field == "age" else f" {CANONICAL_UNITS.get(field, '')}".rstrip()
+    cmp = f"{canon:.4g}{cu} {rule.operator} {target:.4g}{cu} = {_tf(ok)}"
+    return _result(rule, Status.MET if ok else Status.NOT_MET, shown, observed=round(canon, 3),
+                   comparison=cmp, threshold=round(target, 3), unit=cu.strip() or None)
 
 
 def _truthy(v: Any) -> bool:
@@ -213,3 +226,44 @@ def counterfactuals(rules: list[Rule], results: list[CriterionResult]) -> list[s
     op = rule.operator if rule.kind == "inclusion" else NEGATE.get(rule.operator, rule.operator)
     unit = f" {rule.unit or CANONICAL_UNITS.get(rule.field, '')}".rstrip() if rule.field != "age" else ""
     return [f"Would be eligible if {PRETTY[rule.field]} {op} {rule.value:g}{unit}"]
+
+
+def _required(rule: Rule) -> str:
+    """What the patient needs for this criterion to stop blocking eligibility."""
+    name = PRETTY.get(rule.field, rule.field)
+    unit = "" if rule.field == "age" else f" {rule.unit or CANONICAL_UNITS.get(rule.field, '')}".rstrip()
+    if rule.field in PRETTY:
+        op = rule.operator if rule.kind == "inclusion" else NEGATE.get(rule.operator, rule.operator)
+        return f"{name} {op} {rule.value:g}{unit}"
+    if rule.field in ("conditions", "medications"):
+        want = rule.operator == "contains" if rule.kind == "inclusion" else rule.operator != "contains"
+        return f"{'recorded' if want else 'no recorded'} {rule.field[:-1]} '{rule.value}'"
+    if rule.field == "sex":
+        return f"sex {'==' if rule.kind == 'inclusion' else '!='} {rule.value}"
+    if rule.field == "pregnant":
+        return "not pregnant" if rule.kind == "exclusion" else "pregnant"
+    if rule.field == "notes":
+        return ("criterion documented as absent" if rule.kind == "exclusion" else "criterion documented as present")
+    return rule.source_text
+
+
+def why_not(rules: list[Rule], results: list[CriterionResult]) -> list[dict]:
+    """For each blocking criterion: observed value, requirement, exact comparison and a rule-derived counterfactual."""
+    by_id = {r.id: r for r in rules}
+    out = []
+    for res in results:
+        blocking = (res.kind == "exclusion" and res.status == Status.MET) or \
+                   (res.kind == "inclusion" and res.status == Status.NOT_MET)
+        rule = by_id.get(res.rule_id)
+        if not blocking or rule is None:
+            continue
+        cf = None
+        if rule.field in PRETTY and isinstance(rule.value, (int, float)):
+            req = _required(rule)
+            cf = (f"This criterion would be satisfied if {req}." if rule.kind == "inclusion"
+                  else f"This exclusion would no longer apply if {req}.")
+        out.append({"rule_id": res.rule_id, "section": res.section, "kind": res.kind, "criterion": res.source_text,
+                    "observed": res.patient_value, "observed_value": res.observed, "required": _required(rule),
+                    "comparison": res.comparison,
+                    "counterfactual": cf})
+    return out

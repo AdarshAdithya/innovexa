@@ -48,18 +48,44 @@ def init(reset: bool = False):
     seed_if_empty()
 
 
+def _data_version() -> str:
+    import hashlib
+    h = hashlib.sha256()
+    for name in ("trials.json", "patients.json"):
+        h.update((config.DATA_DIR / name).read_bytes())
+    return h.hexdigest()[:16]
+
+
 def seed_if_empty():
-    with conn() as c:
-        if c.execute("SELECT COUNT(*) FROM trials").fetchone()[0]:
-            return
+    """Load the benchmark dataset; reload it when generate.py has produced a new version."""
     trials_path = config.DATA_DIR / "trials.json"
     if not trials_path.exists():
         import runpy
         runpy.run_path(str(config.DATA_DIR / "generate.py"), run_name="__main__")
+    version = _data_version()
+    if kv_get("data_version") == version:
+        return
+    with conn() as c:
+        c.execute("DELETE FROM patients")
+        c.execute("DELETE FROM verdicts")
+        c.execute("DELETE FROM kv WHERE key = 'metrics'")
     for t in json.loads(trials_path.read_text()):
         save_trial(Trial(**t))
     for p in json.loads((config.DATA_DIR / "patients.json").read_text()):
         save_patient(Patient(**p))
+    kv_set("data_version", version)
+
+
+def benchmark_patients() -> list[Patient]:
+    return [Patient(**p) for p in json.loads((config.DATA_DIR / "patients.json").read_text())]
+
+
+def benchmark_trials() -> list[Trial]:
+    return [Trial(**t) for t in json.loads((config.DATA_DIR / "trials.json").read_text())]
+
+
+def benchmark_patient(pid: str) -> Optional[Patient]:
+    return next((p for p in benchmark_patients() if p.id == pid), None)
 
 
 def save_trial(t: Trial):

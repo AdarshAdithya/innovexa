@@ -11,13 +11,14 @@ export default function Screening({ s, onTrial }: { s: Shared; onTrial: (id: str
   const [busy, setBusy] = useState<"" | "fast" | "agent">("");
   const [error, setError] = useState<string | null>(null);
   const [events, setEvents] = useState<TraceEvent[]>([]);
+  const [patient, setPatient] = useState("");
   const abort = useRef<AbortController | null>(null);
 
   async function fast() {
     setBusy("fast");
     setError(null);
     try {
-      s.setVerdicts(trialId, await api.screen(trialId));
+      s.setVerdicts(trialId, await api.screen(trialId, patient ? [patient] : undefined));
       s.refresh();
     } catch (e) {
       setError(String((e as Error).message));
@@ -35,7 +36,7 @@ export default function Screening({ s, onTrial }: { s: Shared; onTrial: (id: str
     try {
       await streamScreen(
         trialId,
-        null,
+        patient ? [patient] : null,
         (e) => {
           setEvents((all) => [...all, e]);
           if (e.type === "final" && e.data?.verdict) {
@@ -63,7 +64,7 @@ export default function Screening({ s, onTrial }: { s: Shared; onTrial: (id: str
           <select
             value={trialId}
             onChange={(e) => onTrial(e.target.value)}
-            className="rounded-lg border border-slate-300 bg-white px-2 py-1.5 text-sm"
+            className="max-w-full rounded-lg border border-slate-300 bg-white px-2 py-1.5 text-sm"
           >
             {s.trials.map((t) => (
               <option key={t.id} value={t.id}>
@@ -71,8 +72,20 @@ export default function Screening({ s, onTrial }: { s: Shared; onTrial: (id: str
               </option>
             ))}
           </select>
+          <select
+            value={patient}
+            onChange={(e) => setPatient(e.target.value)}
+            className="rounded-lg border border-slate-300 bg-white px-2 py-1.5 text-sm"
+          >
+            <option value="">All {s.patients.length} patients</option>
+            {s.patients.map((p) => (
+              <option key={p.id} value={p.id}>
+                {p.id}
+              </option>
+            ))}
+          </select>
           <Button onClick={agent} disabled={!!busy || !trialId}>
-            Run agent (live trace)
+            Run Clinical Screening Agent
           </Button>
           <Button variant="ghost" onClick={fast} disabled={!!busy || !trialId}>
             Fast pipeline

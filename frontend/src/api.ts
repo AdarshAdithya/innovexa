@@ -42,6 +42,14 @@ export interface Patient {
   notes: string;
   anomaly: Anomaly | null;
 }
+export interface TemporalEvent {
+  concept: string;
+  sentence: string;
+  negated: boolean;
+  months_ago: number | null;
+  stated_as: string | null;
+  inside_window: boolean | null;
+}
 export interface CriterionResult {
   rule_id: string;
   kind: string;
@@ -51,6 +59,56 @@ export interface CriterionResult {
   patient_value: unknown;
   evaluated_by: string;
   detail: string;
+  field?: string | null;
+  operator?: string | null;
+  threshold?: unknown;
+  unit?: string | null;
+  observed?: unknown;
+  comparison?: string | null;
+  temporal?: { window_months: number; window_text: string; events: TemporalEvent[] } | null;
+}
+export interface WhyNot {
+  rule_id: string;
+  section: string | null;
+  kind: string;
+  criterion: string;
+  observed: unknown;
+  observed_value: unknown;
+  required: string;
+  comparison: string | null;
+  counterfactual: string | null;
+}
+export interface EvidenceRequest {
+  rank: number;
+  rule_id: string;
+  rule_ids: string[];
+  section: string | null;
+  kind: string;
+  criterion: string;
+  field: string | null;
+  reason: string;
+  detail: string;
+  impact: "HIGH" | "MEDIUM" | "LOW";
+  why: string;
+  cohort_block_rate: number | null;
+  request: string;
+  if_resolved: Record<string, Decision>;
+  can_change_decision: boolean;
+  plan?: string;
+}
+export interface EvidenceSummary {
+  total: number;
+  passed: number;
+  failed: number;
+  unresolved: number;
+  completeness: number;
+  primary_blockers: { rule_id: string; section: string | null; criterion: string; observed: unknown }[];
+  unresolved_criteria: { rule_id: string; section: string | null; criterion: string; reason: string }[];
+}
+export interface Verification {
+  status?: "passed" | "corrected";
+  checks?: { check: string; ok: boolean }[];
+  corrections?: string[];
 }
 export interface Verdict {
   patient_id: string;
@@ -63,13 +121,64 @@ export interface Verdict {
   flags: string[];
   counterfactuals: string[];
   corrections: string[];
+  why_not: WhyNot[];
+  next_best_evidence: EvidenceRequest[];
+  evidence_summary: EvidenceSummary;
+  verification: Verification;
+}
+export interface Opportunity extends EvidenceSummary {
+  trial_id: string;
+  title: string;
+  condition: string;
+  decision: Decision;
+  confidence: number;
+  next_best_evidence: EvidenceRequest[];
+  why_not: WhyNot[];
+  verdict: Verdict;
+}
+export interface OpportunityMap {
+  patient: Patient;
+  anomaly: Anomaly | null;
+  trials: Opportunity[];
+}
+export interface Summary {
+  patients: number;
+  trials: number;
+  screened_pairs: number;
+  ELIGIBLE: number;
+  NOT_ELIGIBLE: number;
+  NEEDS_REVIEW: number;
+  implausible: number;
+  advisory_outliers: number;
+  contradictions: number;
+  mode: string;
+}
+export interface EvidenceUpdate {
+  labs?: Record<string, number | { value: number; unit: string }>;
+  pregnant?: boolean;
+  notes_append?: string;
+  conditions_add?: string[];
+  medications_add?: string[];
 }
 export interface TraceEvent {
   type: string;
   content: string;
+  agent?: string;
+  step?: string;
+  status?: string;
   patient_id?: string;
   trial_id?: string;
   data?: Record<string, unknown> & { verdict?: Verdict };
+}
+export interface Score {
+  n: number;
+  correct: number;
+  accuracy: number;
+  precision: number | null;
+  recall: number | null;
+  f1: number | null;
+  macro_f1: number | null;
+  confusion_matrix: number[][];
 }
 export interface Metrics {
   n: number;
@@ -77,16 +186,20 @@ export interface Metrics {
   accuracy: number;
   precision: number | null;
   recall: number | null;
+  f1: number | null;
+  macro_f1: number | null;
+  relevant: Score & { description: string };
+  dataset: { patients: number; trials: number; labeled_pairs: number; label_mix: Record<Decision, number>; source: string };
   labels: Decision[];
   confusion_matrix: number[][];
-  per_class: Record<Decision, { precision: number | null; recall: number | null; support: number }>;
+  per_class: Record<Decision, { precision: number | null; recall: number | null; f1: number | null; support: number }>;
   per_trial: Record<string, { accuracy: number; n: number }>;
   mismatches: { patient_id: string; trial_id: string; expected: string; predicted: string; label_comment: string; rationale: string }[];
   judge: { avg_clarity: number | null; n: number; mode: string | null; distribution: Record<string, number>; samples: { score: number; reason: string }[] };
   mode: string;
   seconds: number;
   target: number;
-  baseline?: { available: boolean; reason?: string; accuracy?: number; n?: number } | null;
+  baseline?: { available: boolean; reason?: string; accuracy?: number; n?: number; f1?: number | null; macro_f1?: number | null } | null;
 }
 export interface Ranking {
   trial_id: string;
@@ -108,6 +221,7 @@ export interface QueryResult {
   parsed_by: string;
   answer: string;
   rows: { patient_id: string; trial_id: string; decision: Decision; age: number; sex: string; confidence: number; flags: string[] }[];
+  table?: { trial_id: string; section: string; criterion: string; count: number }[];
 }
 export interface ReviewItem {
   patient_id: string;
@@ -115,6 +229,7 @@ export interface ReviewItem {
   decision: Decision;
   flags: string[];
   unknown: string[];
+  next_best_evidence: EvidenceRequest[];
   reviewed: { decision: string; note: string } | null;
 }
 
@@ -151,6 +266,11 @@ export const api = {
   rankings: (pid: string) => req<Ranking[]>(`/patients/${encodeURIComponent(pid)}/rankings`),
   cohorts: () => req<Cohorts>("/cohorts"),
   review: () => req<ReviewItem[]>("/review"),
+  summary: () => req<Summary>("/summary"),
+  opportunities: (pid: string) => req<OpportunityMap>(`/patients/${encodeURIComponent(pid)}/opportunities`),
+  addEvidence: (pid: string, body: EvidenceUpdate) =>
+    req<Patient>(`/patients/${encodeURIComponent(pid)}/evidence`, { method: "POST", body: JSON.stringify(body) }),
+  resetPatient: (pid: string) => req<Patient>(`/patients/${encodeURIComponent(pid)}/reset`, { method: "POST" }),
   submitReview: (body: { patient_id: string; trial_id: string; decision: string; note: string }) =>
     req<{ ok: boolean }>("/review", { method: "POST", body: JSON.stringify(body) }),
 };

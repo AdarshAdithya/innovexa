@@ -85,6 +85,13 @@ class CriterionResult(BaseModel):
     patient_value: Any = None
     evaluated_by: str = "rules"
     detail: str = ""
+    field: Optional[str] = None
+    operator: Optional[str] = None
+    threshold: Any = None
+    unit: Optional[str] = None
+    observed: Any = None
+    comparison: Optional[str] = None
+    temporal: Optional[dict] = None
 
 
 class Verdict(BaseModel):
@@ -98,11 +105,31 @@ class Verdict(BaseModel):
     flags: list[str] = []
     counterfactuals: list[str] = []
     corrections: list[str] = []
+    why_not: list[dict] = []
+    next_best_evidence: list[dict] = []
+    evidence_summary: dict = {}
+    verification: dict = {}
 
 
 class ScreenRequest(BaseModel):
     trial_id: str = Field(max_length=64)
     patient_ids: Optional[list[str]] = Field(default=None, max_length=500)
+
+
+class EvidenceUpdate(BaseModel):
+    labs: dict[str, Union[float, LabValue]] = Field(default_factory=dict, max_length=10)
+    pregnant: Optional[bool] = None
+    notes_append: str = Field(default="", max_length=500)
+    conditions_add: list[str] = Field(default_factory=list, max_length=10)
+    medications_add: list[str] = Field(default_factory=list, max_length=10)
+
+    @field_validator("labs")
+    @classmethod
+    def _labs_known(cls, v: dict) -> dict:
+        bad = [k for k in v if k not in LAB_FIELDS]
+        if bad:
+            raise ValueError(f"unknown lab fields {bad}; allowed {LAB_FIELDS}")
+        return v
 
 
 class QueryRequest(BaseModel):

@@ -1,4 +1,7 @@
-"""Synthetic data generator: 4 trials, 30 patients, 120 labeled patient-trial pairs.
+"""Synthetic data generator: 4 trials, 120 patients, 480 labeled patient-trial pairs.
+
+30 hand-written edge-case patients (P001-P030), 4 guaranteed demo patients (P040-P043) and a seeded
+random cohort for the rest.
 
 Labels are computed from each patient's *true* clinical state by the functions at the bottom
 of this file, which share no code with the app's parser or rule engine. That keeps the
@@ -226,6 +229,176 @@ PATIENTS = [
          truth=dict(), why="Pregnancy is an exclusion."),
 ]
 
+# Guaranteed demo patients (see README "Demo flow").
+DEMO_PATIENTS = [
+    dict(id="P040", age=54, sex="M", conditions=["Type 2 diabetes mellitus"], medications=["Metformin"],
+         labs=dict(hba1c=8.3, egfr=88, bmi=29.5, systolic_bp=128, fasting_glucose=165, weight=86),
+         pregnant=False, notes="No history of myocardial infarction or stroke.",
+         truth=dict(mi_recent=False), why="DEMO A: meets every diabetes-trial criterion."),
+    dict(id="P041", age=61, sex="F", conditions=["Type 2 diabetes mellitus"], medications=["Metformin"],
+         labs=dict(hba1c=8.0, egfr=39, bmi=30.1, systolic_bp=130, fasting_glucose=158, weight=79),
+         pregnant=False, notes="No prior MI or stroke.",
+         truth=dict(mi_recent=False), why="DEMO B: eGFR 39 is below the 45 exclusion cutoff; everything else passes."),
+    dict(id="P042", age=62, sex="M",
+         conditions=["Type 2 diabetes mellitus", "Hypertension", "Chronic kidney disease stage 3a"],
+         medications=["Metformin", "Amlodipine"],
+         labs=dict(hba1c=7.9, egfr=52, bmi=31.0, systolic_bp=186, fasting_glucose=150, weight=94),
+         pregnant=False, notes="Myocardial infarction 3 years ago, no events since. Home blood pressure readings elevated.",
+         truth=dict(mi_recent=False, dialysis=None),
+         why="Multi-trial demo: diabetes eligible (MI outside window), hypertension SBP 186 too high, "
+             "CKD dialysis status undocumented, breast cancer not applicable."),
+    dict(id="P043", age=57, sex="F", conditions=["Type 2 diabetes mellitus"], medications=["Metformin"],
+         labs=dict(hba1c=None, egfr=76, bmi=33.0, systolic_bp=132, fasting_glucose=172, weight=88),
+         pregnant=False, notes="History of myocardial infarction, date not recorded.",
+         truth=dict(mi_recent=None),
+         why="DEMO C: HbA1c missing and the MI in the note has no date; two pieces of evidence needed."),
+]
+
+
+# ---------------------------------------------------------------- seeded synthetic cohort
+NEGATED_MI = ["No history of myocardial infarction or stroke.", "Denies prior heart attack or stroke.",
+              "No MI or stroke.", "No prior myocardial infarction."]
+FILLER = ["Routine follow-up visit.", "Adherent to current medication.", "Lives independently.",
+          "Reports good exercise tolerance.", "Seen in clinic for review."]
+
+
+def gen_patient(pid: str, rng: random.Random) -> dict:
+    arche = rng.choices(["t2d", "htn", "ckd", "brca", "t2d_htn", "ckd_t2d", "ckd_htn", "other"],
+                        weights=[18, 16, 8, 14, 12, 10, 10, 12])[0]
+    t2d, htn, ckd, brca = "t2d" in arche, "htn" in arche, "ckd" in arche, arche == "brca"
+    sex = "F" if brca else rng.choice(["F", "M"])
+    age = rng.randint(16, 86)
+    conditions, meds, truth, notes, why = [], [], {}, [], []
+    if t2d:
+        conditions.append("Type 2 diabetes mellitus")
+        meds.append("Metformin")
+        if rng.random() < 0.2:
+            meds.append("Insulin glargine")
+    if htn:
+        conditions.append("Hypertension")
+        meds.append(rng.choice(["Amlodipine", "Losartan", "Ramipril"]))
+        if rng.random() < 0.15:
+            meds.append("Spironolactone")
+        if rng.random() < 0.12:
+            conditions.append("Heart failure")
+    if ckd:
+        conditions.append("Chronic kidney disease")
+        if rng.random() < 0.06:
+            conditions.append("Kidney transplant")
+    if brca:
+        conditions.append("Breast cancer")
+        her2 = rng.random() < 0.6
+        conditions.append("HER2-positive" if her2 else "HER2-negative")
+        meds.append("Trastuzumab" if her2 else "Letrozole")
+        if rng.random() < 0.2:
+            meds.append("Doxorubicin")
+    if arche == "other":
+        conditions.append(rng.choice(["Hyperlipidemia", "Asthma", "Osteoarthritis", "Hypothyroidism"]))
+
+    labs = {
+        "hba1c": round(rng.uniform(6.0, 11.5), 1) if t2d else round(rng.uniform(4.8, 6.2), 1),
+        "egfr": rng.randint(10, 72) if ckd else rng.randint(32, 118),
+        "bmi": round(rng.uniform(19, 44), 1),
+        "systolic_bp": rng.randint(125, 195) if htn else rng.randint(104, 142),
+        "fasting_glucose": rng.randint(110, 300) if t2d else rng.randint(74, 106),
+        "weight": round(rng.uniform(42, 122), 1),
+    }
+    implausible = []
+    r = rng.random()
+    if r < 0.05:
+        labs[rng.choice(["hba1c", "egfr"])] = None
+        why.append("missing lab")
+    elif r < 0.08:
+        bad = rng.choice(["hba1c", "bmi"])
+        labs[bad] = 45 if bad == "hba1c" else 150
+        implausible.append(bad)
+        why.append(f"implausible {bad}")
+    if rng.random() < 0.12:
+        labs["fasting_glucose"] = {"value": round(labs["fasting_glucose"] / 18.0, 1), "unit": "mmol/L"}
+        why.append("glucose in mmol/L")
+    if rng.random() < 0.12:
+        labs["weight"] = {"value": round(labs["weight"] / 0.45359237), "unit": "lb"}
+        why.append("weight in lb")
+    if t2d and isinstance(labs["hba1c"], float) and "hba1c" not in implausible and rng.random() < 0.1:
+        labs["hba1c"] = {"value": round((labs["hba1c"] - 2.152) / 0.09148), "unit": "mmol/mol"}
+        why.append("HbA1c in mmol/mol")
+    truth["implausible"] = implausible
+
+    pregnant = False
+    if sex == "F" and 18 <= age <= 45:
+        roll = rng.random()
+        if roll < 0.1:
+            pregnant = True
+            notes.append(f"Currently {rng.randint(8, 30)} weeks pregnant.")
+            why.append("pregnant")
+        elif roll < 0.16:
+            truth["pregnancy_conflict"] = True
+            notes.append(f"Patient reports she is currently {rng.randint(6, 20)} weeks pregnant.")
+            why.append("pregnancy contradicts structured field")
+
+    if t2d:
+        roll = rng.random()
+        if roll < 0.55:
+            notes.append(rng.choice(NEGATED_MI))
+            truth["mi_recent"] = False
+        elif roll < 0.67:
+            notes.append(f"Myocardial infarction {rng.randint(1, 5)} months ago.")
+            truth["mi_recent"] = True
+            why.append("recent MI")
+        elif roll < 0.82:
+            if rng.random() < 0.5:
+                notes.append(f"Myocardial infarction {rng.randint(2, 9)} years ago, stable since.")
+            else:
+                notes.append(f"Myocardial infarction {rng.randint(8, 30)} months ago, stable since.")
+            truth["mi_recent"] = False
+            why.append("old MI")
+        elif roll < 0.9:
+            notes.append("History of myocardial infarction, date not recorded.")
+            truth["mi_recent"] = None
+            why.append("undated MI")
+        else:
+            truth["mi_recent"] = None
+            why.append("MI status undocumented")
+    if ckd:
+        roll = rng.random()
+        if roll < 0.7:
+            notes.append("Not on dialysis.")
+            truth["dialysis"] = False
+        elif roll < 0.8:
+            notes.append("On hemodialysis three times weekly.")
+            truth["dialysis"] = True
+            why.append("on dialysis")
+        else:
+            truth["dialysis"] = None
+            why.append("dialysis undocumented")
+    if brca:
+        roll = rng.random()
+        if roll < 0.7:
+            notes.append("No brain metastases on staging MRI.")
+            truth["brain_mets"] = False
+        elif roll < 0.85:
+            notes.append("MRI shows active brain metastases.")
+            truth["brain_mets"] = True
+            why.append("brain metastases")
+        else:
+            truth["brain_mets"] = None
+            why.append("brain metastases undocumented")
+    notes.append(rng.choice(FILLER))
+    return dict(id=pid, age=age, sex=sex, conditions=conditions, medications=meds, labs=labs, pregnant=pregnant,
+                notes=" ".join(notes), truth=truth,
+                why="Generated: " + (", ".join(why) if why else "no special edge case") + ".")
+
+
+def build_cohort(n_total: int = 120) -> list[dict]:
+    rng = random.Random(SEED)
+    fixed = {p["id"]: p for p in PATIENTS + DEMO_PATIENTS}
+    out = []
+    for i in range(1, n_total + 1):
+        pid = f"P{i:03d}"
+        out.append(fixed[pid] if pid in fixed else gen_patient(pid, rng))
+    return out
+
+
 # ---------------------------------------------------------------- ground truth (labeler only)
 PLAUSIBLE = {"hba1c": (3, 20), "egfr": (1, 200), "bmi": (10, 80), "systolic_bp": (60, 260),
              "fasting_glucose": (20, 1000), "weight": (20, 350)}
@@ -240,6 +413,8 @@ def _canon(p, lab):
             return v["value"] * 18.0
         if v["unit"] == "lb":
             return v["value"] * 0.45359237
+        if v["unit"] == "mmol/mol":
+            return 0.09148 * v["value"] + 2.152
         return v["value"]
     return v
 
@@ -324,14 +499,14 @@ def record(p):
 
 
 def main():
-    random.seed(SEED)
-    patients = [record(p) for p in PATIENTS]
+    cohort = build_cohort()
+    patients = [record(p) for p in cohort]
     labels = []
-    for p in PATIENTS:
+    for p in cohort:
         for tid, fn in TRUTH.items():
             inc, exc = fn(p)
             decision = decide(inc, exc)
-            labels.append({"patient_id": p["id"], "trial_id": tid, "expected": decision,
+            labels.append({"patient_id": p["id"], "trial_id": tid, "expected": decision, "relevant": _relevant(p, tid),
                            "comment": p["why"] if _relevant(p, tid) else "No qualifying diagnosis or demographic mismatch."})
     (OUT / "trials.json").write_text(json.dumps(TRIALS, indent=2))
     (OUT / "patients.json").write_text(json.dumps(patients, indent=2))
